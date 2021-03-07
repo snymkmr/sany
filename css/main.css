@@ -14,10 +14,11 @@ body {
 /* Dark Mode styles */
 body.dark-theme {
   color: #eee;
-  background: #121212;
+  background: #2e373d;
 }
+
 body.dark-theme a {
-  color: #809fff;
+  color: #527dfd;
 }
 
 h1 {
