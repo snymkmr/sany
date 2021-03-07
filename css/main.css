@@ -1,55 +1,76 @@
 /* Typography ****************************** */
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-family: 'Ubuntu', sans-serif;    
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 1.4;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Dark Mode styles */
+body.dark-theme {
+  color: #eee;
+  background: #121212;
+}
+body.dark-theme a {
+  color: #809fff;
 }
 
 h1 {
-    font-size: 14vw;
-    display: block;
-    text-align: center;
-    font-weight: lighter;
-    line-height: 1;
+  font-size: 14vw;
+  display: block;
+  text-align: center;
+  font-weight: lighter;
+  line-height: 1;
 
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    margin-bottom: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
+.btn-toggle {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  text-align: right;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
 p {
-    display: block;
-    margin-bottom: 1em;
+  display: block;
+  margin-bottom: 1em;
 }
 
 em {
-    font-style: italic;
+  font-style: italic;
 }
 
 strong {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 a {
-    color: inherit;
-    position: relative;
+  color: inherit;
+  position: relative;
 }
 
 /* Layout ****************************** */
 
 main {
-    margin: 30px;
-    margin: 10vh 10vw;
-    max-width: 600px;
+  margin: 30px;
+  margin: 10vh 10vw;
+  max-width: 600px;
 }
 
 .social a {
-    margin-right: 0.6em;
+  margin-right: 0.6em;
 }
