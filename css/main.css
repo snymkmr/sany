@@ -5,11 +5,21 @@ html {
 }
 
 body {
+  --accent-color: orangered;
+  --background-color: white;
+  --text-color: black;
+  --button-text-color: var(--background-color);
+  --transition-delay: 1.5s;
   font-family: "Ubuntu", sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.4;
-  transition: background 0.3s linear;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  transition: var(--transition-delay);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .wave {
@@ -56,12 +66,16 @@ body {
 }
 
 /* Dark Mode styles */
-body.dark-theme {
+body.dark {
   color: #eee;
   background: #2e373d;
+  --accent-color: #D0D066;
+  --background-color: #333;
+  --text-color: white;
+
 }
 
-body.dark-theme a {
+body.dark a {
   color: #527dfd;
 }
 
@@ -89,6 +103,61 @@ h1 {
   overflow: hidden;
   outline: none;
 }
+.checkbox {
+  opacity: 0;
+  position: absolute;
+  top: 10px;
+  right: 32px;
+}
+
+.background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+}
+
+.sun-moon-container {
+  --rotation: 0;
+
+  top: 5px;
+  right: 26px;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  height: 200vmin;
+  transform: rotate(calc(var(--rotation) * 1deg));
+  transition: transform var(--transition-delay);
+}
+
+.sun,
+.moon {
+  position: absolute;
+  transition: opacity, fill, var(--transition-delay);
+  width: 30px;
+  height: 30px;
+  fill: var(--accent-color);
+}
+
+.sun {
+  top: 5%;
+  opacity: 1;
+}
+.dark .sun {
+  opacity: 0;
+}
+.moon {
+  bottom: 5%;
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+.dark .moon {
+  opacity: 1;
+}
+
 p {
   display: block;
   margin-bottom: 1em;

@@ -1,9 +1,11 @@
-const btn = document.querySelector(".btn-toggle");
+const sunMoonContainer = document.querySelector('.sun-moon-container')
+const chk = document.getElementById('chk');
 
-btn.addEventListener("click", function () {
-  document.body.classList.toggle("dark-theme");
+chk.addEventListener('change', () => {
+	document.body.classList.toggle('dark');
+  const currentRotation = parseInt(getComputedStyle(sunMoonContainer).getPropertyValue('--rotation'))
+  sunMoonContainer.style.setProperty('--rotation', currentRotation + 180)
 });
-
 
 var TxtRotate = function(el, toRotate, period) {
   this.toRotate = toRotate;
