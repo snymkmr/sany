@@ -85,7 +85,7 @@ h1 {
   text-align: center;
   font-weight: lighter;
   line-height: 1;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   margin-bottom: 10px;
@@ -119,9 +119,8 @@ h1 {
 
 .sun-moon-container {
   --rotation: 0;
-
-  top: 5px;
-  right: 26px;
+  top: -20%;
+  left: 4%;
   pointer-events: none;
   display: flex;
   justify-content: center;
@@ -182,6 +181,7 @@ main {
   margin: 30px;
   margin: 10vh 10vw;
   max-width: 600px;
+
 }
 
 .social a {
