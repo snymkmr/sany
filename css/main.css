@@ -180,9 +180,10 @@ main {
   margin: 30px;
   margin: 10vh 10vw;
   max-width: 600px;
-
+}
+main .para{
   overflow: auto;
-  max-height: 80vh;
+  max-height: 60vh;
 }
 ::-webkit-scrollbar {
   width: 0px;
