@@ -183,7 +183,7 @@ main {
 }
 main .para{
   overflow: auto;
-  max-height: 55vh;
+  max-height: 60vh;
 }
 ::-webkit-scrollbar {
   width: 0px;
