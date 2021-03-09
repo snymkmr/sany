@@ -119,8 +119,8 @@ h1 {
 
 .sun-moon-container {
   --rotation: 0;
-  top: -20%;
-  left: 4%;
+  margin-top: 1rem;
+  left: 2rem;
   pointer-events: none;
   display: flex;
   justify-content: center;
@@ -141,14 +141,14 @@ h1 {
 }
 
 .sun {
-  top: 5%;
+  top: 0.05rem;
   opacity: 1;
 }
 .dark .sun {
   opacity: 0;
 }
 .moon {
-  bottom: 5%;
+  bottom: 0.05rem;
   opacity: 0;
   transform: rotate(180deg);
 }
