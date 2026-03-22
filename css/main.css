@@ -136,24 +136,21 @@ body.dark a {
 
 .watermark {
   font-family: "Sora", sans-serif;
-  font-size: clamp(2.8rem, calc((100vw - 2.4rem) / 8.2), 18rem);
+  font-size: clamp(2.6rem, calc((100vw - 1.6rem) / 9.4), 18rem);
   display: block;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: clamp(0.03em, 0.22vw, 0.06em);
+  letter-spacing: clamp(0.02em, 0.16vw, 0.045em);
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
   position: absolute;
-  left: 50%;
-  bottom: clamp(6px, 1.2vh, 12px);
-  width: max-content;
-  max-width: calc(100vw - 1.2rem);
-  overflow: hidden;
-  transform: translateX(-50%);
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 10px;
   color: currentColor;
   opacity: 0.08;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
   user-select: none;
 }
@@ -420,9 +417,8 @@ main .para p:nth-child(4) {
   }
 
   .watermark {
-    font-size: calc((100vw - 1.6rem) / 8.1);
-    letter-spacing: 0.03em;
-    max-width: calc(100vw - 0.8rem);
+    font-size: calc((100vw - 1.2rem) / 9.6);
+    letter-spacing: 0.02em;
     opacity: 0.12;
   }
 }
