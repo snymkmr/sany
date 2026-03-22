@@ -80,18 +80,16 @@ body.dark a {
 }
 
 .watermark {
-  font-size: clamp(2.4rem, 11.5vw, 14rem);
+  font-size: 14vw;
   display: block;
   text-align: center;
   font-weight: lighter;
   line-height: 1;
-  white-space: nowrap;
-  position: fixed;
-  left: 0;
-  bottom: 10px;
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  margin: 0;
-  pointer-events: none;
+  margin-bottom: 10px;
+  z-index: -1;
 }
 
 .btn-toggle {
@@ -246,7 +244,4 @@ main .para {
     max-width: 100%;
   }
 
-  .watermark {
-    bottom: 6px;
-  }
 }
