@@ -80,15 +80,18 @@ body.dark a {
 }
 
 .watermark {
-  font-size: 14vw;
+  font-size: clamp(2.4rem, 11.5vw, 14rem);
   display: block;
   text-align: center;
   font-weight: lighter;
   line-height: 1;
-  position: absolute;
-  bottom: 0;
+  white-space: nowrap;
+  position: fixed;
+  left: 0;
+  bottom: 10px;
   width: 100%;
-  margin-bottom: 10px;
+  margin: 0;
+  pointer-events: none;
 }
 
 .btn-toggle {
@@ -202,16 +205,22 @@ main .para {
 .social {
   margin-top: 1.2rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  justify-content: flex-start;
+  align-items: center;
+  gap: clamp(0.6rem, 2vw, 1.4rem);
+  white-space: nowrap;
 }
 
 .social a {
-  margin-right: 0;
+  white-space: nowrap;
 }
 
-.txt-rotate > .wrap,
-.social a {
+.social a + a {
+  padding-left: clamp(0.6rem, 1vw, 1rem);
+  border-left: 1px solid rgba(127, 127, 127, 0.35);
+}
+
+.txt-rotate > .wrap {
   overflow-wrap: anywhere;
 }
 
@@ -238,10 +247,6 @@ main .para {
   }
 
   .watermark {
-    position: static;
-    width: auto;
-    font-size: 15vw;
-    margin: 0;
-    padding: 0 0 0.8rem;
+    bottom: 6px;
   }
 }
