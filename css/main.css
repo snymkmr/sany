@@ -14,10 +14,9 @@ body {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.4;
-  min-height: 100vh;
+  height: 100vh;
   margin: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   transition: var(--transition-delay);
   background-color: var(--background-color);
   color: var(--text-color);
@@ -197,7 +196,14 @@ main {
   max-width: 600px;
 }
 main .para {
+  overflow: auto;
+  max-height: 60vh;
   max-width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
 }
 
 .social {
