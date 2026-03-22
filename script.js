@@ -102,6 +102,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const css = document.createElement("style");
   css.type = "text/css";
-  css.textContent = ".txt-rotate > .wrap { border-right: 0.08em solid #666; }";
+  css.textContent = ".txt-rotate > .wrap { border-right: 0.08em solid currentColor; }";
   document.head.appendChild(css);
 });
