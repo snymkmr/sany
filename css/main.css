@@ -96,7 +96,7 @@ body.dark a {
   top: 32px;
   right: 32px;
   text-align: right;
-  background-color: Transparent;
+  background-color: transparent;
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
@@ -195,6 +195,7 @@ main {
   width: min(600px, calc(100% - 20vw));
   max-width: 600px;
 }
+
 main .para {
   overflow: auto;
   max-height: 60vh;
@@ -249,5 +250,4 @@ main .para {
     width: auto;
     max-width: 100%;
   }
-
 }
