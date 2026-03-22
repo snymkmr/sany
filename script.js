@@ -1,9 +1,42 @@
 const sunMoonContainer = document.querySelector(".sun-moon-container");
 const chk = document.getElementById("chk");
+const THEME_STORAGE_KEY = "theme-preference";
 
-if (chk && sunMoonContainer) {
+const getStoredTheme = () => {
+  try {
+    const theme = localStorage.getItem(THEME_STORAGE_KEY);
+    return theme === "dark" || theme === "light" ? theme : null;
+  } catch (_error) {
+    return null;
+  }
+};
+
+const storeTheme = (theme) => {
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  } catch (_error) {
+    // Ignore storage errors (e.g. private mode restrictions).
+  }
+};
+
+if (chk) {
+  const isDarkTheme = getStoredTheme() === "dark";
+  chk.checked = isDarkTheme;
+  document.body.classList.toggle("dark", isDarkTheme);
+
+  if (sunMoonContainer) {
+    sunMoonContainer.style.setProperty("--rotation", isDarkTheme ? "180" : "0");
+  }
+
   chk.addEventListener("change", () => {
-    document.body.classList.toggle("dark");
+    const isDarkThemeSelected = chk.checked;
+    document.body.classList.toggle("dark", isDarkThemeSelected);
+    storeTheme(isDarkThemeSelected ? "dark" : "light");
+
+    if (!sunMoonContainer) {
+      return;
+    }
+
     const currentRotation = parseInt(
       getComputedStyle(sunMoonContainer).getPropertyValue("--rotation"),
       10
