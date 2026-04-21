@@ -15,7 +15,8 @@ body {
   --surface-border: rgba(27, 31, 34, 0.18);
   --surface-shadow: rgba(18, 25, 32, 0.25);
   --button-text-color: var(--background-color);
-  --transition-delay: 600ms;
+  --transition-delay: 2300ms;
+  --theme-easing: cubic-bezier(0.22, 1, 0.36, 1);
   font-family: "Manrope", sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
@@ -34,7 +35,9 @@ body {
     radial-gradient(circle at 11% 90%, rgba(79, 156, 255, 0.18), transparent 42%),
     linear-gradient(145deg, #f8f9f3 0%, #f0efe6 52%, #e9eadf 100%);
   color: var(--text-color);
-  transition: color var(--transition-delay), background var(--transition-delay);
+  transition:
+    color var(--transition-delay) var(--theme-easing),
+    background var(--transition-delay) var(--theme-easing);
 }
 
 body::before,
@@ -43,6 +46,9 @@ body::after {
   position: fixed;
   inset: 0;
   pointer-events: none;
+  transition:
+    background var(--transition-delay) var(--theme-easing),
+    opacity var(--transition-delay) var(--theme-easing);
 }
 
 body::before {
@@ -215,13 +221,15 @@ body.dark .watermark {
   top: 0;
   height: 200vmin;
   transform: rotate(calc(var(--rotation) * 1deg));
-  transition: transform var(--transition-delay);
+  transition: transform var(--transition-delay) var(--theme-easing);
 }
 
 .sun,
 .moon {
   position: absolute;
-  transition: opacity var(--transition-delay), fill var(--transition-delay);
+  transition:
+    opacity var(--transition-delay) var(--theme-easing),
+    fill var(--transition-delay) var(--theme-easing);
   width: 30px;
   height: 30px;
   fill: var(--accent-color);
