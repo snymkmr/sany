@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Privacy information for sanyam.dev and the Anya VS Code extensions." />
+  <meta name="color-scheme" content="light dark" />
+  <title>Privacy | Sanyam Kumar</title>
+  <link rel="icon" href="../favicon.ico" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #202124;
+      background: #fff;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      line-height: 1.65;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      max-width: 54rem;
+      margin: 0 auto;
+      padding: clamp(1.5rem, 5vw, 4rem) clamp(1rem, 5vw, 2rem);
+    }
+
+    a { color: #a83200; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    h1, h2 { line-height: 1.2; }
+    h1 { margin: 1.5rem 0 0.5rem; font-size: clamp(2rem, 6vw, 3rem); }
+    h2 { margin-top: 2.25rem; font-size: 1.35rem; }
+    p, ul { max-width: 72ch; }
+    li + li { margin-top: 0.55rem; }
+    .eyebrow, .updated { color: #5b6065; }
+    .eyebrow { margin: 0; font-size: 0.9rem; }
+    .updated { margin-top: 0; font-size: 0.95rem; }
+    footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #d7dadd; }
+
+    @media (prefers-color-scheme: dark) {
+      :root { color: #edf0f2; background: #202428; }
+      a { color: #ff9d75; }
+      .eyebrow, .updated { color: #b9c0c6; }
+      footer { border-color: #4b535a; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow"><a href="https://sanyam.dev">Sanyam.dev</a> / Privacy</p>
+    <h1>Privacy</h1>
+    <p class="updated">Effective date: October 31, 2026</p>
+
+    <p>This page covers my projects that link here: my websites and my VS Code extensions (AnyaPDF, AnyaXML, AnyaCSV, AnyaJSON).</p>
+
+    <p>The short version: my extensions process your files locally in VS Code. They do not send your document contents or usage data to me. No accounts, no ads, no telemetry from the extensions themselves.</p>
+
+    <h2>Per project</h2>
+    <ul>
+      <li><strong>AnyaPDF</strong> opens PDFs in a local VS Code webview and remembers your zoom and fit-to-width settings in VS Code's own storage.</li>
+      <li><strong>AnyaXML</strong> formats and minifies locally using a temporary folder that is deleted after processing.</li>
+      <li><strong>AnyaCSV</strong> remembers which documents are enabled and your delimiter choices in VS Code storage. Nothing is sent to me.</li>
+      <li><strong>AnyaJSON</strong> does not save your document contents.</li>
+    </ul>
+
+    <p><strong>Note:</strong> VS Code itself may collect telemetry based on your VS Code settings. That is Microsoft's, not mine.</p>
+
+    <h2>This website</h2>
+    <p>This website (sanyam.dev) remembers your light/dark theme in your browser. It loads fonts from Google Fonts, so Google may see technical info like your IP address when your browser fetches them. My hosting provider may log technical request data to run and protect the site. No analytics or advertising on this page.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this page or a project's practices? Email <a href="mailto:sanyamkumar@duck.com">sanyamkumar@duck.com</a>. I only use what you send to reply.</p>
+
+    <footer>
+      <a href="https://sanyam.dev">Return to sanyam.dev</a>
+    </footer>
+  </main>
+</body>
+</html>
