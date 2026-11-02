@@ -50,18 +50,18 @@
   <main>
     <p class="eyebrow"><a href="https://sanyam.dev">Sanyam.dev</a> / Privacy</p>
     <h1>Privacy</h1>
-    <p class="updated">Effective date: October 31, 2026</p>
+    <p class="updated">Effective date: November 1, 2026</p>
 
     <p>This page covers my projects that link here: my websites and my VS Code extensions (AnyaPDF, AnyaXML, AnyaCSV, AnyaJSON).</p>
 
-    <p>The short version: my extensions process your files locally in VS Code. They do not send your document contents or usage data to me. No accounts, no ads, no telemetry from the extensions themselves.</p>
+    <p>The short version: my extensions process your files locally in VS Code. They do not send your document contents or usage data to me. Large-file previews and checks read files directly from disk. The extensions have no accounts, ads, or telemetry that they send to me.</p>
 
     <h2>Per project</h2>
     <ul>
       <li><strong>AnyaPDF</strong> opens PDFs in a local VS Code webview and remembers your zoom and fit-to-width settings in VS Code's own storage.</li>
-      <li><strong>AnyaXML</strong> formats and minifies locally using a temporary folder that is deleted after processing.</li>
-      <li><strong>AnyaCSV</strong> remembers which documents are enabled and your delimiter choices in VS Code storage. Nothing is sent to me.</li>
-      <li><strong>AnyaJSON</strong> does not save your document contents.</li>
+      <li><strong>AnyaXML</strong> formats and minifies files locally using a temporary folder that is deleted after processing. Large-file previews and validation read directly from disk. Excel exports are written to a location you choose.</li>
+      <li><strong>AnyaCSV</strong> remembers enabled documents and delimiter choices in VS Code storage. Large-file previews and lint read from disk locally. Its colorization diagnostic records only elapsed time in the local extension-host log, without a file name or contents; AnyaCSV does not send this entry to me. Excel exports are written to a location you choose.</li>
+      <li><strong>AnyaJSON</strong> does not keep document contents in extension storage. Large-file previews and validation read saved files locally from disk. Excel exports are written to a location you choose.</li>
     </ul>
 
     <p><strong>Note:</strong> VS Code itself may collect telemetry based on your VS Code settings. That is Microsoft's, not mine.</p>
