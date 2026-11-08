@@ -22,7 +22,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300..600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300..600&family=Noto+Sans+Devanagari:wght@300..600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/main.css" />
   <style>
     /* One screen, no scroll */
@@ -256,8 +256,13 @@
   </div>
 
   <header class="topbar">
-    <a class="mark" href="/" aria-label="sanyam.dev home"><span class="pulse"></span>sanyam.dev</a>
+    <a class="mark" href="/" aria-label="sanyam.dev home" data-i18n-label="mark"><span class="pulse"></span>sanyam.dev</a>
     <div class="topnav">
+      <nav class="langs" aria-label="Language" data-i18n-label="langs">
+        <a href="/" lang="en" hreflang="en" aria-label="English" aria-current="true">en</a>
+        <a href="/hi/" lang="hi" hreflang="hi" aria-label="हिन्दी">हि</a>
+        <a href="/fr/" lang="fr" hreflang="fr" aria-label="Français">fr</a>
+      </nav>
       <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="4" />
@@ -271,8 +276,8 @@
   </header>
 
   <main>
-    <p class="greeting"><span class="slash">//</span>error <span class="sep" aria-hidden="true">·</span> 404</p>
-    <h1>Page not found<svg class="broken" viewBox="0 0 24 24" aria-hidden="true">
+    <p class="greeting" data-i18n="greeting"><span class="slash">//</span>error <span class="sep" aria-hidden="true">·</span> 404</p>
+    <h1><span data-i18n="h1">Page not found</span><svg class="broken" viewBox="0 0 24 24" aria-hidden="true">
         <g class="half-a">
           <path d="M5 12V4a2 2 0 0 1 2-2h8l4 4v6l-2-1-2 1.5-2.5-2-2.5 2-2.5-2Z" />
           <path d="M15 2v4h4M8.5 7h5" />
@@ -282,7 +287,7 @@
           <path d="M8.5 17.5h7" />
         </g>
       </svg></h1>
-    <p class="lede">
+    <p class="lede" data-i18n="lede">
       I looked everywhere. The repo. The backups. My downloads folder. My
       <em>other</em> downloads folder. Who has two downloads folders? I have
       two downloads folders! The page exists in my memory. Unfortunately,
@@ -290,8 +295,8 @@
     </p>
 
     <section class="group" aria-labelledby="g-next">
-      <h2 id="g-next">so where do you go now?</h2>
-      <p class="prose">
+      <h2 id="g-next" data-i18n="h2">so where do you go now?</h2>
+      <p class="prose" data-i18n="prose">
         What's the deal with 404 pages? You click a link, you expect a page.
         The <a href="/">home page</a>? Still there. Never left. My
         <a href="/open-source/">open source work</a>? Exists. I checked. And
@@ -302,12 +307,77 @@
   </main>
 
   <footer class="footer">
-    <p class="callout">
+    <p class="callout" data-i18n="callout">
       <strong>Schrödinger's page:</strong> it exists, it doesn't exist. Pick
       one! You can't have it both ways. Well, you can, until you click the link.
     </p>
   </footer>
 
+  <!-- Language: /hi/… or /fr/… in the URL wins, then the browser's language -->
+  <script>
+    (() => {
+      const MAIL = '<a href="mailto:sanyamkumar@duck.com?subject=Broken%20link%20on%20sanyam.dev">sanyamkumar@duck.com</a>';
+      const T = {
+        fr: {
+          mark: "accueil sanyam.dev",
+          langs: "Langue",
+          greeting: '<span class="slash">//</span>erreur <span class="sep" aria-hidden="true">·</span> 404',
+          h1: "Page introuvable",
+          lede: "J’ai cherché partout. Le dépôt. Les sauvegardes. Mes Téléchargements. Mes <em>autres</em> Téléchargements. Qui a deux dossiers Téléchargements ? Moi ! La page existe dans ma mémoire. Hélas, la mémoire n’est pas une stratégie de déploiement.",
+          h2: "alors, on va où maintenant ?",
+          prose: 'C’est quoi, le truc avec les pages 404 ? On clique sur un lien, on attend une page. La <a href="/fr/">page d’accueil</a> ? Toujours là. Mes <a href="/fr/open-source/">projets open source</a> ? Ils existent. J’ai vérifié. Et si un lien de ce site mène ici, je veux des noms : ' + MAIL + ".",
+          callout: "<strong>La page de Schrödinger :</strong> elle existe et n’existe pas. Choisissez ! On ne peut pas avoir les deux. Enfin si, jusqu’au clic sur le lien.",
+        },
+        hi: {
+          mark: "sanyam.dev होम",
+          langs: "भाषा",
+          greeting: '<span class="slash">//</span>एरर <span class="sep" aria-hidden="true">·</span> 404',
+          h1: "पेज नहीं मिला",
+          lede: "मैंने हर जगह देखा। रिपो में। बैकअप में। अपने डाउनलोड्स फ़ोल्डर में। अपने <em>दूसरे</em> डाउनलोड्स फ़ोल्डर में। किसके पास दो डाउनलोड्स फ़ोल्डर होते हैं? मेरे पास हैं, पूरे दो! पेज मेरी याददाश्त में मौजूद है। अफ़सोस, याददाश्त कोई डिप्लॉयमेंट स्ट्रैटेजी नहीं है।",
+          h2: "तो अब कहाँ जाएँ?",
+          prose: 'ये 404 पेज का चक्कर क्या है? आप लिंक पर क्लिक करते हैं, तो पेज की उम्मीद करते हैं। <a href="/hi/">होम पेज</a>? वहीं है। कहीं नहीं गया। मेरा <a href="/hi/open-source/">ओपन सोर्स काम</a>? मौजूद है। मैंने चेक किया। और अगर इस साइट के किसी लिंक ने आपको यहाँ भेजा है, तो मुझे नाम चाहिए: ' + MAIL + "।",
+          callout: "<strong>श्रोडिंगर का पेज:</strong> वह है भी, और नहीं भी। कोई एक चुनिए! दोनों एक साथ नहीं हो सकते। ख़ैर, हो सकते हैं, जब तक आप लिंक पर क्लिक न करें।",
+        },
+      };
+
+      const texts = document.querySelectorAll("[data-i18n]");
+      const labels = document.querySelectorAll("[data-i18n-label]");
+      const links = document.querySelectorAll(".langs a");
+      const mark = document.querySelector(".mark");
+
+      // English is whatever the page shipped with
+      T.en = {};
+      texts.forEach((el) => (T.en[el.dataset.i18n] = el.innerHTML));
+      labels.forEach((el) => (T.en[el.dataset.i18nLabel] = el.getAttribute("aria-label")));
+
+      const apply = (lang) => {
+        const t = T[lang];
+        texts.forEach((el) => (el.innerHTML = t[el.dataset.i18n]));
+        labels.forEach((el) => el.setAttribute("aria-label", t[el.dataset.i18nLabel]));
+        links.forEach((a) =>
+          a.lang === lang ? a.setAttribute("aria-current", "true") : a.removeAttribute("aria-current")
+        );
+        mark.href = lang === "en" ? "/" : `/${lang}/`;
+        document.documentElement.lang = lang;
+        document.dispatchEvent(new Event("langchange"));
+      };
+
+      // On this page the switcher swaps the text in place
+      links.forEach((a) =>
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          apply(a.lang);
+        })
+      );
+
+      const fromPath = location.pathname.split("/")[1];
+      const fromBrowser = (navigator.languages || [navigator.language])
+        .map((l) => String(l).slice(0, 2).toLowerCase())
+        .find((l) => Object.hasOwn(T, l));
+      const lang = Object.hasOwn(T, fromPath) ? fromPath : fromBrowser;
+      if (lang && lang !== "en") apply(lang);
+    })();
+  </script>
   <script src="/script.js"></script>
 </body>
 

@@ -628,6 +628,57 @@ h1 {
   background: var(--accent);
 }
 
+/* Language switcher (en · हि · fr) */
+.langs {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.langs a {
+  padding: 0.25rem 0.3rem;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.langs a:hover {
+  color: var(--text);
+}
+
+.langs a[aria-current="true"] {
+  color: var(--accent);
+}
+
+/* Hindi: Geist Mono has no Devanagari, so pair it with Noto Sans Devanagari
+   (loaded on the Hindi pages and the 404). Devanagari also breaks apart
+   when letter-spaced. */
+:lang(hi) {
+  --mono: "Geist Mono", "Noto Sans Devanagari", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--mono);
+}
+
+html:lang(hi) body * {
+  letter-spacing: 0;
+}
+
+/* Narrow phones: the page heading already names the page */
+@media (max-width: 420px) {
+  .topnav .navlink {
+    display: none;
+  }
+
+  .langs a {
+    padding: 0.6rem 0.3rem;
+  }
+}
+
+@media print {
+  .langs {
+    display: none;
+  }
+}
+
 /* Inner pages (open source, privacy) ****************************** */
 
 .page main {

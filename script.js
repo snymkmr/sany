@@ -13,12 +13,22 @@ const storeTheme = (theme) => {
 const currentTheme = () =>
   root.dataset.theme || (darkQuery.matches ? "dark" : "light");
 
+const THEME_LABELS = {
+  en: { dark: "Switch to dark mode", light: "Switch to light mode" },
+  fr: { dark: "Passer au mode sombre", light: "Passer au mode clair" },
+  hi: { dark: "डार्क मोड पर जाएँ", light: "लाइट मोड पर जाएँ" },
+};
+
 const toggle = document.querySelector(".theme-toggle");
 if (toggle) {
   const syncLabel = () => {
     const next = currentTheme() === "dark" ? "light" : "dark";
-    toggle.setAttribute("aria-label", `Switch to ${next} mode`);
+    const labels = THEME_LABELS[root.lang] || THEME_LABELS.en;
+    toggle.setAttribute("aria-label", labels[next]);
   };
+
+  // The 404 page can switch language in place
+  document.addEventListener("langchange", syncLabel);
 
   toggle.addEventListener("click", () => {
     const next = currentTheme() === "dark" ? "light" : "dark";

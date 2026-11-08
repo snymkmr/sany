@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Confidentialité | Sañyam Kumar</title>
+  <meta name="description" content="Informations sur la confidentialité de sanyam.dev, des extensions VS Code Anya et du paquet npm strip-accents." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+  <link rel="canonical" href="https://sanyam.dev/fr/privacy/" />
+  <link rel="alternate" hreflang="en" href="https://sanyam.dev/privacy/" />
+  <link rel="alternate" hreflang="hi" href="https://sanyam.dev/hi/privacy/" />
+  <link rel="alternate" hreflang="fr" href="https://sanyam.dev/fr/privacy/" />
+  <link rel="alternate" hreflang="x-default" href="https://sanyam.dev/privacy/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sañyam Kumar" />
+  <meta property="og:locale" content="fr_CA" />
+  <meta property="og:locale:alternate" content="en_CA" />
+  <meta property="og:locale:alternate" content="hi_IN" />
+  <meta property="og:title" content="Confidentialité — Sañyam Kumar" />
+  <meta property="og:description" content="Informations sur la confidentialité de sanyam.dev, des extensions VS Code Anya et du paquet npm strip-accents." />
+  <meta property="og:url" content="https://sanyam.dev/fr/privacy/" />
+  <meta property="og:image" content="https://sanyam.dev/meta.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="1200" />
+  <meta property="og:image:alt" content="Sañyam Kumar — Lead Software Engineer, sanyam.dev" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Confidentialité — Sañyam Kumar" />
+  <meta name="twitter:description" content="Informations sur la confidentialité de sanyam.dev, des extensions VS Code Anya et du paquet npm strip-accents." />
+  <meta name="twitter:image" content="https://sanyam.dev/meta.jpg" />
+  <meta name="twitter:image:alt" content="Sañyam Kumar — Lead Software Engineer, sanyam.dev" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <script>
+    try {
+      var t = localStorage.getItem("theme-preference");
+      if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300..600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body class="page">
+  <div class="backdrop" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="glow"></div>
+    <div class="grain"></div>
+  </div>
+  <div class="frame" aria-hidden="true">
+    <i></i><i></i><i></i><i></i>
+  </div>
+
+  <header class="topbar">
+    <a class="mark" href="/fr/" aria-label="accueil sanyam.dev"><span class="pulse"></span>sanyam.dev</a>
+    <div class="topnav">
+      <a class="navlink" href="/fr/privacy/" aria-current="page">confidentialité</a>
+      <nav class="langs" aria-label="Langue">
+        <a href="/privacy/" lang="en" hreflang="en" aria-label="English">en</a>
+        <a href="/hi/privacy/" lang="hi" hreflang="hi" aria-label="हिन्दी">हि</a>
+        <a href="/fr/privacy/" lang="fr" hreflang="fr" aria-label="Français" aria-current="true">fr</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <p class="greeting"><span class="slash">//</span>confidentialité <span class="sep" aria-hidden="true">·</span> en vigueur le 1er novembre 2026</p>
+    <h1>Confidentialité</h1>
+    <p class="lede">
+      Cette page couvre mes projets qui renvoient ici : mes sites web, mes
+      extensions VS Code (AnyaPDF, AnyaXML, AnyaCSV, AnyaJSON) et mon paquet
+      npm (strip-accents).
+    </p>
+    <p class="callout">
+      <strong>Traduction :</strong> fournie pour plus de commodité. En cas de
+      divergence, la <a href="/privacy/" hreflang="en" lang="en">version anglaise</a> fait foi.
+    </p>
+
+    <section class="tldr" aria-labelledby="g-short">
+      <h2 id="g-short" class="tldr-label">En bref</h2>
+      <p>
+        Mes extensions traitent vos fichiers localement dans VS Code. Elles ne
+        m’envoient ni le contenu de vos documents ni de données d’utilisation.
+        Les aperçus et vérifications de gros fichiers lisent directement depuis
+        le disque. Les extensions n’ont ni comptes, ni publicités, ni télémétrie
+        qui me soit envoyée.
+      </p>
+      <ul class="promises" aria-label="En un coup d’œil">
+        <li>tourne en local</li>
+        <li>aucune télémétrie vers moi</li>
+        <li>aucun compte</li>
+        <li>aucune publicité</li>
+      </ul>
+    </section>
+
+    <section class="group" aria-labelledby="g-projects">
+      <h2 id="g-projects"><span class="count">01</span>par projet</h2>
+      <ul class="projects">
+        <li class="project">
+          <div class="head">
+            <h3>strip-accents</h3>
+            <span class="tag">npm</span>
+          </div>
+          <p>
+            S’exécute entièrement dans votre propre code. Aucun script
+            d’installation, et aucune donnée collectée ni envoyée.
+          </p>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaXML</h3>
+            <span class="tag">VS Code</span>
+          </div>
+          <p>
+            Formate et minifie les fichiers localement, à l’aide d’un dossier
+            temporaire supprimé après le traitement. Les aperçus et la validation
+            des gros fichiers lisent directement depuis le disque. Les exports
+            Excel sont enregistrés à l’emplacement de votre choix.
+          </p>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaCSV</h3>
+            <span class="tag">VS Code</span>
+          </div>
+          <p>
+            Mémorise les documents activés et les choix de délimiteur dans le
+            stockage de VS Code. Les aperçus et la vérification des gros fichiers
+            lisent le disque localement. Son diagnostic de colorisation n’enregistre
+            que le temps écoulé dans le journal local de l’hôte d’extensions, sans
+            nom de fichier ni contenu ; AnyaCSV ne m’envoie pas cette entrée. Les
+            exports Excel sont enregistrés à l’emplacement de votre choix.
+          </p>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaJSON</h3>
+            <span class="tag">VS Code</span>
+          </div>
+          <p>
+            Ne conserve pas le contenu des documents dans le stockage de
+            l’extension. Les aperçus et la validation des gros fichiers lisent
+            localement les fichiers enregistrés sur le disque. Les exports Excel
+            sont enregistrés à l’emplacement de votre choix.
+          </p>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaPDF</h3>
+            <span class="tag">VS Code</span>
+          </div>
+          <p>
+            Ouvre les PDF dans une webview locale de VS Code et mémorise vos
+            réglages de zoom et d’ajustement à la largeur dans le stockage propre
+            à VS Code.
+          </p>
+        </li>
+      </ul>
+      <p class="callout">
+        <strong>Remarque :</strong> VS Code peut lui-même collecter de la
+        télémétrie selon vos paramètres VS Code. Celle-ci relève de Microsoft,
+        pas de moi.
+      </p>
+    </section>
+
+    <section class="group" aria-labelledby="g-site">
+      <h2 id="g-site"><span class="count">02</span>ce site web</h2>
+      <p class="prose">
+        Ce site web (sanyam.dev) mémorise votre thème clair/sombre dans votre
+        navigateur. Il charge ses polices depuis Google Fonts ; Google peut donc
+        voir des informations techniques, comme votre adresse IP, lorsque votre
+        navigateur les récupère. Mon hébergeur peut journaliser des données
+        techniques de requêtes pour faire fonctionner et protéger le site. Aucune
+        mesure d’audience ni publicité sur cette page.
+      </p>
+    </section>
+
+    <section class="group" aria-labelledby="g-contact">
+      <h2 id="g-contact"><span class="count">03</span>contact</h2>
+      <p class="prose">
+        Des questions sur cette page ou sur les pratiques d’un projet ? Écrivez à
+        <a href="mailto:sanyamkumar@duck.com">sanyamkumar@duck.com</a>.
+        Ce que vous m’envoyez sert uniquement à vous répondre.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <nav class="links" aria-label="Site">
+      <a href="/fr/"><sup>←</sup>accueil</a>
+      <a href="/fr/open-source/">open source</a>
+    </nav>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+
+</html>

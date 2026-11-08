@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="hi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ओपन सोर्स | Sañyam Kumar</title>
+  <meta name="description" content="Sañyam Kumar के ओपन-सोर्स प्रोजेक्ट: एक npm पैकेज, VS Code एक्सटेंशन और एक Chrome एक्सटेंशन।" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+  <link rel="canonical" href="https://sanyam.dev/hi/open-source/" />
+  <link rel="alternate" hreflang="en" href="https://sanyam.dev/open-source/" />
+  <link rel="alternate" hreflang="hi" href="https://sanyam.dev/hi/open-source/" />
+  <link rel="alternate" hreflang="fr" href="https://sanyam.dev/fr/open-source/" />
+  <link rel="alternate" hreflang="x-default" href="https://sanyam.dev/open-source/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sañyam Kumar" />
+  <meta property="og:locale" content="hi_IN" />
+  <meta property="og:locale:alternate" content="en_CA" />
+  <meta property="og:locale:alternate" content="fr_CA" />
+  <meta property="og:title" content="ओपन सोर्स — Sañyam Kumar" />
+  <meta property="og:description" content="एक npm पैकेज, VS Code एक्सटेंशन और एक Chrome एक्सटेंशन।" />
+  <meta property="og:url" content="https://sanyam.dev/hi/open-source/" />
+  <meta property="og:image" content="https://sanyam.dev/meta.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="1200" />
+  <meta property="og:image:alt" content="Sañyam Kumar — Lead Software Engineer, sanyam.dev" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ओपन सोर्स — Sañyam Kumar" />
+  <meta name="twitter:description" content="एक npm पैकेज, VS Code एक्सटेंशन और एक Chrome एक्सटेंशन।" />
+  <meta name="twitter:image" content="https://sanyam.dev/meta.jpg" />
+  <meta name="twitter:image:alt" content="Sañyam Kumar — Lead Software Engineer, sanyam.dev" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <script>
+    try {
+      var t = localStorage.getItem("theme-preference");
+      if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300..600&family=Noto+Sans+Devanagari:wght@300..600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body class="page">
+  <div class="backdrop" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="glow"></div>
+    <div class="grain"></div>
+  </div>
+  <div class="frame" aria-hidden="true">
+    <i></i><i></i><i></i><i></i>
+  </div>
+
+  <header class="topbar">
+    <a class="mark" href="/hi/" aria-label="sanyam.dev होम"><span class="pulse"></span>sanyam.dev</a>
+    <div class="topnav">
+      <a class="navlink" href="/hi/open-source/" aria-current="page">ओपन सोर्स</a>
+      <nav class="langs" aria-label="भाषा">
+        <a href="/open-source/" lang="en" hreflang="en" aria-label="English">en</a>
+        <a href="/hi/open-source/" lang="hi" hreflang="hi" aria-label="हिन्दी" aria-current="true">हि</a>
+        <a href="/fr/open-source/" lang="fr" hreflang="fr" aria-label="Français">fr</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <p class="greeting"><span class="slash">//</span>ओपन सोर्स</p>
+    <h1>जो मैंने शिप किया</h1>
+    <p class="lede">
+      छोटे, एक काम पर केंद्रित टूल, जो खुले में बनाए और संभाले जाते हैं। ये
+      लोकल चलते हैं, कुछ भी इकट्ठा नहीं करते, और अपना एक काम बढ़िया करते हैं।
+    </p>
+
+    <section class="group" aria-labelledby="g-npm">
+      <h2 id="g-npm"><span class="count">01</span>npm पैकेज</h2>
+      <ul class="projects">
+        <li class="project">
+          <div class="head">
+            <h3>strip-accents</h3>
+            <span class="tag">Node.js</span>
+          </div>
+          <p>
+            लैटिन अक्षरों से एक्सेंट और डायक्रिटिक हटाकर उन्हें सादे ASCII में
+            बदलता है। दूसरी लिपियों को नहीं छेड़ता। न कोई डिपेंडेंसी, न कोई
+            इंस्टॉल स्क्रिप्ट।
+          </p>
+          <code class="install">npm i strip-accents</code>
+          <div class="actions">
+            <a href="https://www.npmjs.com/package/strip-accents" target="_blank" rel="noopener noreferrer">npm<span class="arrow" aria-hidden="true">↗</span></a>
+            <a href="https://github.com/snymkmr/strip-accents" target="_blank" rel="noopener noreferrer">सोर्स<span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="group" aria-labelledby="g-vscode">
+      <h2 id="g-vscode"><span class="count">02</span>VS Code एक्सटेंशन</h2>
+      <ul class="projects">
+        <li class="project">
+          <div class="head">
+            <h3>AnyaXML</h3>
+            <span class="tag">XML</span>
+          </div>
+          <p>
+            XML को फ़ॉर्मैट, मिनिफ़ाई और वैलिडेट करें, और उसे फ़िल्टर होने वाली
+            टेबल के रूप में देखें, Excel एक्सपोर्ट के साथ। कई गीगाबाइट की फ़ाइलें
+            सीधे डिस्क से स्ट्रीम करता है।
+          </p>
+          <div class="actions">
+            <a href="https://marketplace.visualstudio.com/items?itemName=Sanyam.anyaxml" target="_blank" rel="noopener noreferrer">मार्केटप्लेस<span class="arrow" aria-hidden="true">↗</span></a>
+            <a href="https://github.com/snymkmr/anyaXML" target="_blank" rel="noopener noreferrer">सोर्स<span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaCSV</h3>
+            <span class="tag">CSV · TSV</span>
+          </div>
+          <p>
+            CSV और उसके जैसे फ़ॉर्मैट के लिए डिलिमिटर समझने वाली एडिटिंग: हर
+            कॉलम का अलग रंग, होवर पर जानकारी, गड़बड़ पंक्तियों की जाँच, और Excel
+            एक्सपोर्ट के साथ टेबल प्रीव्यू।
+          </p>
+          <div class="actions">
+            <a href="https://marketplace.visualstudio.com/items?itemName=Sanyam.anyacsv" target="_blank" rel="noopener noreferrer">मार्केटप्लेस<span class="arrow" aria-hidden="true">↗</span></a>
+            <a href="https://github.com/snymkmr/anyaCSV" target="_blank" rel="noopener noreferrer">सोर्स<span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaJSON</h3>
+            <span class="tag">JSON</span>
+          </div>
+          <p>
+            JSON को फ़ॉर्मैट, मिनिफ़ाई और लिंट करें, बिना कीज़ का क्रम, नंबरों की
+            लिखावट या एस्केप बदले। रिकॉर्ड की ऐरे को टेबल में देखें और Excel में
+            एक्सपोर्ट करें।
+          </p>
+          <div class="actions">
+            <a href="https://marketplace.visualstudio.com/items?itemName=Sanyam.anyajson" target="_blank" rel="noopener noreferrer">मार्केटप्लेस<span class="arrow" aria-hidden="true">↗</span></a>
+            <a href="https://github.com/snymkmr/anyaJSON" target="_blank" rel="noopener noreferrer">सोर्स<span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaPDF</h3>
+            <span class="tag">PDF</span>
+          </div>
+          <p>
+            VS Code के अंदर ही PDF पढ़ें। ज़रूरत पड़ने पर पेज रेंडरिंग, टेक्स्ट
+            चुनना और खोजना, ज़ूम और चौड़ाई के हिसाब से फ़िट, और आउटलाइन से
+            नेविगेशन।
+          </p>
+          <div class="actions">
+            <a href="https://marketplace.visualstudio.com/items?itemName=Sanyam.anyapdf" target="_blank" rel="noopener noreferrer">मार्केटप्लेस<span class="arrow" aria-hidden="true">↗</span></a>
+            <a href="https://github.com/snymkmr/anyaPDF" target="_blank" rel="noopener noreferrer">सोर्स<span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="group" aria-labelledby="g-chrome">
+      <h2 id="g-chrome"><span class="count">03</span>Chrome एक्सटेंशन</h2>
+      <ul class="projects">
+        <li class="project">
+          <div class="head">
+            <h3>QRious</h3>
+            <span class="tag">Chrome · Edge · Brave</span>
+          </div>
+          <p>
+            एक क्लिक में, खुले हुए पेज का QR कोड। उसे कॉपी करें या प्रिंट-साइज़
+            PNG डाउनलोड करें, या किसी भी लिंक पर राइट-क्लिक करके उसका कोड पाएँ।
+            ऑफ़लाइन चलता है; URL आपके ब्राउज़र से बाहर नहीं जाता।
+          </p>
+          <ol class="steps" aria-label="इंस्टॉल करने का तरीका">
+            <li>ZIP डाउनलोड करके अनज़िप करें।</li>
+            <li><code>chrome://extensions</code> खोलें और <strong>Developer mode</strong> चालू करें।</li>
+            <li><strong>Load unpacked</strong> पर क्लिक करें और अनज़िप किया हुआ फ़ोल्डर चुनें।</li>
+          </ol>
+          <div class="actions">
+            <a href="https://github.com/snymkmr/QRious/archive/refs/heads/main.zip">zip डाउनलोड करें<span class="arrow" aria-hidden="true">↓</span></a>
+            <a href="https://github.com/snymkmr/QRious" target="_blank" rel="noopener noreferrer">सोर्स<span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <p class="note">
+      और प्रोजेक्ट <a href="https://github.com/snymkmr" target="_blank" rel="noopener noreferrer">GitHub</a> पर हैं।
+      इन प्रोजेक्ट्स की प्राइवेसी से जुड़ी जानकारी <a href="/hi/privacy/">प्राइवेसी पेज</a> पर है।
+    </p>
+  </main>
+
+  <footer class="footer">
+    <nav class="links" aria-label="Site">
+      <a href="/hi/"><sup>←</sup>होम</a>
+      <a href="/hi/privacy/">प्राइवेसी</a>
+    </nav>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+
+</html>

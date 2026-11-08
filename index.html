@@ -10,9 +10,15 @@
   <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="https://sanyam.dev/" />
+  <link rel="alternate" hreflang="en" href="https://sanyam.dev/" />
+  <link rel="alternate" hreflang="hi" href="https://sanyam.dev/hi/" />
+  <link rel="alternate" hreflang="fr" href="https://sanyam.dev/fr/" />
+  <link rel="alternate" hreflang="x-default" href="https://sanyam.dev/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Sañyam Kumar" />
   <meta property="og:locale" content="en_CA" />
+  <meta property="og:locale:alternate" content="hi_IN" />
+  <meta property="og:locale:alternate" content="fr_CA" />
   <meta property="og:title" content="Sañyam Kumar — Lead Software Engineer" />
   <meta property="og:description" content="Lead Software Engineer building scalable backend and data systems." />
   <meta property="og:url" content="https://sanyam.dev/" />
@@ -55,15 +61,22 @@
 
   <header class="topbar">
     <a class="mark" href="/" aria-label="sanyam.dev home"><span class="pulse"></span>sanyam.dev</a>
-    <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
-      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="4" />
-        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-      </svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
-      </svg>
-    </button>
+    <div class="topnav">
+      <nav class="langs" aria-label="Language">
+        <a href="/" lang="en" hreflang="en" aria-label="English" aria-current="true">en</a>
+        <a href="/hi/" lang="hi" hreflang="hi" aria-label="हिन्दी">हि</a>
+        <a href="/fr/" lang="fr" hreflang="fr" aria-label="Français">fr</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        </svg>
+      </button>
+    </div>
   </header>
 
   <main>
