@@ -1,15 +1,6 @@
-const sunMoonContainer = document.querySelector(".sun-moon-container");
-const chk = document.getElementById("chk");
 const THEME_STORAGE_KEY = "theme-preference";
-
-const getStoredTheme = () => {
-  try {
-    const theme = localStorage.getItem(THEME_STORAGE_KEY);
-    return theme === "dark" || theme === "light" ? theme : null;
-  } catch (_error) {
-    return null;
-  }
-};
+const root = document.documentElement;
+const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
 const storeTheme = (theme) => {
   try {
@@ -19,89 +10,139 @@ const storeTheme = (theme) => {
   }
 };
 
-if (chk) {
-  const isDarkTheme = getStoredTheme() === "dark";
-  chk.checked = isDarkTheme;
-  document.body.classList.toggle("dark", isDarkTheme);
+const currentTheme = () =>
+  root.dataset.theme || (darkQuery.matches ? "dark" : "light");
 
-  if (sunMoonContainer) {
-    sunMoonContainer.style.setProperty("--rotation", isDarkTheme ? "180" : "0");
+const toggle = document.querySelector(".theme-toggle");
+if (toggle) {
+  const syncLabel = () => {
+    const next = currentTheme() === "dark" ? "light" : "dark";
+    toggle.setAttribute("aria-label", `Switch to ${next} mode`);
+  };
+
+  toggle.addEventListener("click", () => {
+    const next = currentTheme() === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
+    storeTheme(next);
+    syncLabel();
+  });
+
+  darkQuery.addEventListener?.("change", syncLabel);
+  syncLabel();
+}
+
+/* Rotating multilingual greeting */
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const rotate = (el, words, period) => {
+  const wrap = document.createElement("span");
+  wrap.className = "wrap";
+  el.appendChild(wrap);
+
+  if (reduceMotion) {
+    wrap.textContent = words[0];
+    return;
   }
 
-  chk.addEventListener("change", () => {
-    const isDarkThemeSelected = chk.checked;
-    document.body.classList.toggle("dark", isDarkThemeSelected);
-    storeTheme(isDarkThemeSelected ? "dark" : "light");
+  // Split into whole characters (grapheme clusters) so scripts like
+  // Devanagari or Gurmukhi never show half-formed glyphs while typing.
+  const segmenter = window.Intl?.Segmenter ? new Intl.Segmenter(undefined, { granularity: "grapheme" }) : null;
+  const split = (word) => (segmenter ? [...segmenter.segment(word)].map((s) => s.segment) : [...word]);
+  const glyphs = words.map(split);
 
-    if (!sunMoonContainer) {
-      return;
+  let index = 0;
+  let count = 0;
+  let deleting = false;
+
+  const tick = () => {
+    const full = glyphs[index % glyphs.length];
+    count += deleting ? -1 : 1;
+    wrap.textContent = full.slice(0, count).join("");
+
+    let delay = deleting ? 60 : 140 - Math.random() * 50;
+    if (!deleting && count >= full.length) {
+      delay = period;
+      deleting = true;
+    } else if (deleting && count <= 0) {
+      count = 0;
+      deleting = false;
+      index++;
+      delay = 400;
     }
+    setTimeout(tick, delay);
+  };
 
-    const currentRotation = parseInt(
-      getComputedStyle(sunMoonContainer).getPropertyValue("--rotation"),
-      10
-    );
-    const safeRotation = Number.isNaN(currentRotation) ? 0 : currentRotation;
-    sunMoonContainer.style.setProperty("--rotation", safeRotation + 180);
+  tick();
+};
+
+document.querySelectorAll(".txt-rotate").forEach((el) => {
+  try {
+    const words = JSON.parse(el.dataset.rotate || "[]");
+    if (words.length) rotate(el, words, parseInt(el.dataset.period, 10) || 1400);
+  } catch (_error) {
+    // Ignore malformed data.
+  }
+});
+
+/* Soft glow that follows the pointer */
+const glow = document.querySelector(".glow");
+if (glow && !reduceMotion && window.matchMedia("(hover: hover)").matches) {
+  let frame = 0;
+  window.addEventListener("pointermove", (e) => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      glow.style.setProperty("--mx", `${e.clientX}px`);
+      glow.style.setProperty("--my", `${e.clientY}px`);
+    });
   });
 }
 
-const TxtRotate = function (el, toRotate, period) {
-  this.toRotate = toRotate;
-  this.el = el;
-  this.loopNum = 0;
-  this.period = parseInt(period, 10) || 1000;
-  this.txt = "";
-  this.isDeleting = false;
-  this.wrap = document.createElement("span");
-  this.wrap.className = "wrap";
-  this.el.appendChild(this.wrap);
-  this.tick();
-};
+/* No scroll, at any screen size: shrink everything until it fits */
+const main = document.querySelector(".home main");
+if (main) {
+  const h1 = main.querySelector("h1");
 
-TxtRotate.prototype.tick = function () {
-  const i = this.loopNum % this.toRotate.length;
-  const fullTxt = this.toRotate[i];
+  // Measure layout boxes (offset*), which ignore transforms, so the
+  // entrance animation's translate never registers as overflow.
+  const fits = () => {
+    const kids = [...main.children].filter((el) => el.offsetHeight);
+    if (!kids.length) return true;
+    const first = kids[0];
+    const last = kids[kids.length - 1];
+    const cs = getComputedStyle(main);
+    const needed =
+      last.offsetTop + last.offsetHeight - first.offsetTop +
+      parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+    const nameFits = !h1 || h1.scrollWidth <= h1.clientWidth + 1;
+    return needed <= main.clientHeight + 1 && nameFits;
+  };
 
-  if (this.isDeleting) {
-    this.txt = fullTxt.substring(0, this.txt.length - 1);
-  } else {
-    this.txt = fullTxt.substring(0, this.txt.length + 1);
-  }
+  const apply = (k) => {
+    root.style.setProperty("--fit", k);
+    root.style.fontSize = `${k * 100}%`;
+  };
 
-  this.wrap.textContent = this.txt;
-
-  let delta = 300 - Math.random() * 100;
-  if (this.isDeleting) {
-    delta /= 2;
-  }
-
-  if (!this.isDeleting && this.txt === fullTxt) {
-    delta = this.period;
-    this.isDeleting = true;
-  } else if (this.isDeleting && this.txt === "") {
-    this.isDeleting = false;
-    this.loopNum++;
-    delta = 500;
-  }
-
-  setTimeout(() => {
-    this.tick();
-  }, delta);
-};
-
-window.addEventListener("DOMContentLoaded", () => {
-  const elements = document.getElementsByClassName("txt-rotate");
-  for (let i = 0; i < elements.length; i++) {
-    const toRotate = elements[i].getAttribute("data-rotate");
-    const period = elements[i].getAttribute("data-period");
-    if (toRotate) {
-      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+  const fit = () => {
+    apply(1);
+    if (fits()) return;
+    let lo = 0.35;
+    let hi = 1;
+    for (let i = 0; i < 10; i++) {
+      const mid = (lo + hi) / 2;
+      apply(mid);
+      if (fits()) lo = mid;
+      else hi = mid;
     }
-  }
+    apply(lo);
+  };
 
-  const css = document.createElement("style");
-  css.type = "text/css";
-  css.textContent = ".txt-rotate > .wrap { border-right: 0.08em solid #666; }";
-  document.head.appendChild(css);
-});
+  let pending = 0;
+  const schedule = () => {
+    cancelAnimationFrame(pending);
+    pending = requestAnimationFrame(fit);
+  };
+
+  fit();
+  window.addEventListener("resize", schedule);
+  document.fonts?.ready.then(fit);
+}
