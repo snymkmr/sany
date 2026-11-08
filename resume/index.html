@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sañyam Kumar - Résumé</title>
+    <meta name="description" content="Résumé of Sanyam Kumar, Lead Software Engineer with 9+ years in Banking &amp; Financial Services technology." />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href="https://sanyam.dev/resume/" />
+    <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+
+    <!-- Apply the saved theme before any CSS loads, so there is no flash of the wrong theme. -->
+    <script>
+        (function () {
+            var root = document.documentElement;
+            root.classList.add('js');
+            try {
+                var t = localStorage.getItem('theme-preference');
+                if (t === 'light' || t === 'dark') root.setAttribute('data-theme', t);
+            } catch (e) { }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300..600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180" />
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- Decorative layers -->
+    <div class="backdrop" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="frame" aria-hidden="true">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+    </div>
+
+    <div class="shell">
+        <header class="topbar">
+            <a class="brand" href="/"><span class="brand-dot" aria-hidden="true"></span>sanyam.dev</a>
+            <div class="topbar-actions">
+            <button class="pdf-btn" type="button" hidden aria-label="Save résumé as PDF">
+                <span class="pdf-text">save pdf</span><span class="pdf-arrow" aria-hidden="true">↓</span>
+            </button>
+            <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+                <span class="theme-ring" aria-hidden="true">
+                    <svg class="icon icon-moon" viewBox="0 0 24 24" width="15" height="15" fill="none"
+                        stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z" />
+                    </svg>
+                    <svg class="icon icon-sun" viewBox="0 0 24 24" width="15" height="15" fill="none"
+                        stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                    </svg>
+                </span>
+            </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <p class="label reveal"><span class="slashes" aria-hidden="true">//</span> résumé <span class="label-sep" aria-hidden="true">·</span> Toronto, ON</p>
+                <h1 class="name reveal">Sanyam Kumar<span class="cursor" aria-hidden="true">_</span></h1>
+                <p class="intro reveal"><span class="k">Lead Software Engineer</span> with 9+ years in Information Technology, delivering for <span class="k">Banking &amp; Financial Services</span>: regulatory reporting, Capital Markets, and <span class="k">AI-driven</span> application modernization with agents and <span class="k">GitHub Copilot</span>.</p>
+                <ul class="contacts reveal">
+                    <li><a class="link" href="mailto:sanyamkumar@duck.com?subject=Hello%20from%20your%20resume" target="_blank"
+                            rel="noopener noreferrer"><sup>01</sup><span class="link-text">sanyamkumar@duck.com</span></a></li>
+                    <li><a class="link" href="https://www.linkedin.com/in/sanyam/" target="_blank"
+                            rel="noopener noreferrer"><sup>02</sup><span class="link-text">linkedin.com/in/sanyam</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+                    <li><a class="link" href="https://github.com/snymkmr" target="_blank"
+                            rel="noopener noreferrer"><sup>03</sup><span class="link-text">github.com/snymkmr</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+                    <li><a class="link" href="/open-source/"><sup>04</sup><span class="link-text">sanyam.dev/open-source</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+                </ul>
+            </section>
+
+            <section class="section" aria-labelledby="h-experience">
+                <h2 class="label section-label reveal" id="h-experience"><span class="slashes" aria-hidden="true">//</span> Experience</h2>
+                <div class="section-body jobs">
+                    <article class="job reveal">
+                        <header class="entry-head">
+                            <h3 class="entry-title">CGI Canada</h3>
+                            <p class="meta">02.2025 - present <span class="meta-loc">Toronto, ON</span></p>
+                        </header>
+                        <p class="entry-role">Lead Software Engineer / Subject Matter Expert</p>
+                        <ul class="bullets">
+                            <li>Lead developer and SME for <span class="k">FINTRAC EFTR, Canada</span>: SWIFT and Non-SWIFT regulatory reporting of <span class="k">50K+ transactions a day</span>, owning technical design, impact assessments and mentoring the development team.</li>
+                            <li>Built a <span class="k">GitHub Copilot</span> release-automation tool that turns Git changes into implementation plans and release packages, cutting release prep from <span class="k">4 hours to 30 minutes</span> across <span class="k">34 production releases</span> in FY26.</li>
+                            <li>Designed <span class="k">10+ AI agents</span>, including one that reverse-engineers legacy applications to shape target architectures on <span class="k">Azure</span>, <span class="k">.NET</span> and <span class="k">Angular</span>.</li>
+                        </ul>
+                    </article>
+
+                    <article class="job reveal">
+                        <header class="entry-head">
+                            <h3 class="entry-title">CGI India</h3>
+                            <p class="meta">05.2021 - 01.2025 <span class="meta-loc">Hyderabad, India</span></p>
+                        </header>
+                        <p class="entry-role">Senior Software Engineer</p>
+                        <ul class="bullets">
+                            <li>Built and enhanced regulatory reporting platforms with <span class="k">Node.js</span>, <span class="k">SQL Server</span>, <span class="k">Databricks</span> and <span class="k">Java</span>.</li>
+                            <li>Designed technical architecture, specifications and estimates for a Capital Markets securities-optimization platform.</li>
+                            <li>Led code reviews, root cause analysis, releases and production support.</li>
+                        </ul>
+                    </article>
+
+                    <article class="job reveal">
+                        <header class="entry-head">
+                            <h3 class="entry-title">Virtusa</h3>
+                            <p class="meta">12.2017 - 04.2021 <span class="meta-loc">Chennai, India</span></p>
+                        </header>
+                        <p class="entry-role">Engineer</p>
+                        <ul class="bullets">
+                            <li>Built high-volume regulatory reporting pipelines from <span class="k">Hive</span> to <span class="k">SQL Server</span> with automated submissions.</li>
+                            <li>Developed client onboarding on the <span class="k">MEAN</span> stack and <span class="k">Java</span> integration services for FX trade booking.</li>
+                            <li>Created an automated testing framework and an <span class="k">Azure</span> data-integration proof of concept.</li>
+                        </ul>
+                    </article>
+
+                    <article class="job reveal">
+                        <header class="entry-head">
+                            <h3 class="entry-title">Freelance</h3>
+                            <p class="meta">06.2017 - 11.2017 <span class="meta-loc">Lucknow, India</span></p>
+                        </header>
+                        <p class="entry-role">Web Developer</p>
+                        <ul class="bullets">
+                            <li>Developed and maintained web applications using <span class="k">ASP.NET</span> and <span class="k">C#</span>.</li>
+                            <li>Built user interfaces with <span class="k">JavaScript</span>, <span class="k">HTML</span> and <span class="k">CSS</span>, integrating front-end and back-end systems.</li>
+                        </ul>
+                    </article>
+
+                    <article class="job reveal">
+                        <header class="entry-head">
+                            <h3 class="entry-title">DTRL, DRDO</h3>
+                            <p class="meta">01.2017 - 05.2017 <span class="meta-loc">New Delhi, India</span></p>
+                        </header>
+                        <p class="entry-role">Intern</p>
+                        <ul class="bullets">
+                            <li>Assisted a scientist researching band selection for <span class="k">hyperspectral images</span> with <span class="k">spectral clustering</span> on a hybrid SID + SAM similarity matrix to remove redundant bands.</li>
+                            <li>Helped compare similarity matrices on ACC, AIE and ARE metrics and report the trade-offs.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" aria-labelledby="h-skills">
+                <h2 class="label section-label reveal" id="h-skills"><span class="slashes" aria-hidden="true">//</span> Skills</h2>
+                <div class="section-body">
+                    <dl class="skills">
+                        <div class="skill reveal">
+                            <dt>Languages &amp; frameworks</dt>
+                            <dd>JavaScript, TypeScript, Node.js, Java, C#, .NET, Angular, SQL</dd>
+                        </div>
+                        <div class="skill reveal">
+                            <dt>Cloud &amp; data</dt>
+                            <dd>Microsoft Azure, AWS, Databricks, SQL Server, Hive</dd>
+                        </div>
+                        <div class="skill reveal">
+                            <dt>Tooling</dt>
+                            <dd>GitHub Copilot, AI agents, ServiceNow, AutoSys, JIRA</dd>
+                        </div>
+                        <div class="skill reveal">
+                            <dt>Domain</dt>
+                            <dd>Regulatory reporting, Capital Markets, Banking &amp; Financial Services</dd>
+                        </div>
+                    </dl>
+                </div>
+            </section>
+
+            <section class="section" aria-labelledby="h-certification">
+                <h2 class="label section-label reveal" id="h-certification"><span class="slashes" aria-hidden="true">//</span> Certification</h2>
+                <div class="section-body">
+                    <ul class="rows">
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-sub">Microsoft Certified</span>
+                                <span class="row-title">Azure Fundamentals</span>
+                            </div>
+                            <a class="link" href="https://www.credly.com/badges/178e0aa5-39df-4a07-86b8-e1405c07f02b"
+                                target="_blank" rel="noopener noreferrer"><sup>05</sup><span class="link-text">verify</span><span class="arrow" aria-hidden="true">↗</span></a>
+                        </li>
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-sub">Microsoft Certified</span>
+                                <span class="row-title">Azure Data Fundamentals</span>
+                            </div>
+                            <a class="link" href="https://www.credly.com/badges/ec729fae-2f66-4972-a8fe-6ce5574f0cee"
+                                target="_blank" rel="noopener noreferrer"><sup>06</sup><span class="link-text">verify</span><span class="arrow" aria-hidden="true">↗</span></a>
+                        </li>
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-sub">Microsoft Certified</span>
+                                <span class="row-title">Azure AI Fundamentals</span>
+                            </div>
+                            <a class="link" href="https://www.credly.com/badges/6962cc88-5472-4682-bc7c-e5cfc44051b0"
+                                target="_blank" rel="noopener noreferrer"><sup>07</sup><span class="link-text">verify</span><span class="arrow" aria-hidden="true">↗</span></a>
+                        </li>
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-sub">Databricks</span>
+                                <span class="row-title">AI Agents on Databricks</span>
+                            </div>
+                        </li>
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-sub">GitHub</span>
+                                <span class="row-title">Career Essentials in GitHub Copilot</span>
+                            </div>
+                        </li>
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-sub">Coursera</span>
+                                <span class="row-title">Google AI Essentials Specialization</span>
+                            </div>
+                        </li>
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-sub">LinkedIn Learning</span>
+                                <span class="row-title">Scala for Data Engineering</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section" aria-labelledby="h-awards">
+                <h2 class="label section-label reveal" id="h-awards"><span class="slashes" aria-hidden="true">//</span> Awards</h2>
+                <div class="section-body">
+                    <ul class="rows awards">
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-title">CGI Silver Award</span>
+                                <span class="row-desc">President's recognition, Asia Pacific, for leading successful project delivery.</span>
+                            </div>
+                            <span class="meta">03.2026</span>
+                        </li>
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-title">CGI Certificate of Appreciation</span>
+                                <span class="row-desc">For outstanding contribution to a successful delivery.</span>
+                            </div>
+                            <span class="meta">02.2024</span>
+                        </li>
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-title">CGI Bronze Award</span>
+                                <span class="row-desc">Recognized by the SVP &amp; BU Leader, Asia Pacific, for significant accomplishments.</span>
+                            </div>
+                            <span class="meta">09.2022</span>
+                        </li>
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-title">Virtusa Top Talent</span>
+                                <span class="row-desc">For outstanding achievement and contribution in FY20.</span>
+                            </div>
+                            <span class="meta">08.2020</span>
+                        </li>
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-title">Virtusa Certificate of Appreciation</span>
+                                <span class="row-desc">For consistently exceeding delivery expectations.</span>
+                            </div>
+                            <span class="meta">12.2019</span>
+                        </li>
+                        <li class="row reveal">
+                            <div class="row-main">
+                                <span class="row-title">Virtusa Stellar Award</span>
+                                <span class="row-desc">For exemplary performance in Q4 FY19.</span>
+                            </div>
+                            <span class="meta">06.2019</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section" aria-labelledby="h-education">
+                <h2 class="label section-label reveal" id="h-education"><span class="slashes" aria-hidden="true">//</span> Education</h2>
+                <div class="section-body">
+                    <article class="job reveal">
+                        <header class="entry-head">
+                            <h3 class="entry-title">B.Tech - Computer Science and Engineering</h3>
+                            <p class="meta">05.2017</p>
+                        </header>
+                        <p class="entry-role">VT University, Chennai</p>
+                        <ul class="bullets">
+                            <li>Grade: <span class="k">8.77</span>, Graduate First Class with Distinction</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
