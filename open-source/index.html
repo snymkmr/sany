@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open Source | Sañyam Kumar</title>
+  <meta name="description" content="Open-source projects by Sañyam Kumar: an npm package, VS Code extensions, and a Chrome extension." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Open Source — Sañyam Kumar" />
+  <meta property="og:url" content="https://sanyam.dev/open-source/" />
+  <meta property="og:image" content="https://sanyam.dev/meta.jpg" />
+  <meta property="og:site_name" content="Sañyam Kumar" />
+  <meta property="og:description" content="An npm package, VS Code extensions, and a Chrome extension." />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://sanyam.dev/open-source/" />
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+
+  <script>
+    try {
+      var t = localStorage.getItem("theme-preference");
+      if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300..600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+
+<body class="oss">
+  <div class="backdrop" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="glow"></div>
+    <div class="grain"></div>
+  </div>
+  <div class="frame" aria-hidden="true">
+    <i></i><i></i><i></i><i></i>
+  </div>
+
+  <header class="topbar">
+    <a class="mark" href="/" aria-label="sanyam.dev home"><span class="pulse"></span>sanyam.dev</a>
+    <div class="topnav">
+      <a class="navlink" href="/open-source/" aria-current="page">open source</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <p class="greeting"><span class="slash">//</span>open source</p>
+    <h1>Things I’ve shipped</h1>
+    <p class="lede">
+      Small, focused tools I build and maintain in the open. They run locally,
+      collect nothing, and do one job well.
+    </p>
+
+    <section class="group" aria-labelledby="g-npm">
+      <h2 id="g-npm"><span class="count">01</span>npm package</h2>
+      <ul class="projects">
+        <li class="project">
+          <div class="head">
+            <h3>strip-accents</h3>
+            <span class="tag">Node.js</span>
+          </div>
+          <p>
+            Removes accents and diacritics from Latin letters, converting them to
+            plain ASCII. Other scripts are left unchanged. No dependencies, no
+            install scripts.
+          </p>
+          <code class="install">npm i strip-accents</code>
+          <div class="actions">
+            <a href="https://www.npmjs.com/package/strip-accents" target="_blank" rel="noopener noreferrer">npm<span class="arrow" aria-hidden="true">↗</span></a>
+            <a href="https://github.com/snymkmr/strip-accents" target="_blank" rel="noopener noreferrer">source<span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="group" aria-labelledby="g-vscode">
+      <h2 id="g-vscode"><span class="count">02</span>VS Code extensions</h2>
+      <ul class="projects">
+        <li class="project">
+          <div class="head">
+            <h3>AnyaXML</h3>
+            <span class="tag">XML</span>
+          </div>
+          <p>
+            Format, minify and validate XML, and preview it as a filterable table
+            with Excel export. Streams multi-gigabyte files straight from disk.
+          </p>
+          <div class="actions">
+            <a href="https://marketplace.visualstudio.com/items?itemName=Sanyam.anyaxml" target="_blank" rel="noopener noreferrer">marketplace<span class="arrow" aria-hidden="true">↗</span></a>
+            <a href="https://github.com/snymkmr/anyaXML" target="_blank" rel="noopener noreferrer">source<span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaCSV</h3>
+            <span class="tag">CSV · TSV</span>
+          </div>
+          <p>
+            Delimiter-aware editing for CSV and friends: per-column colors, hover
+            details, lint for malformed rows, and a table preview with Excel export.
+          </p>
+          <div class="actions">
+            <a href="https://marketplace.visualstudio.com/items?itemName=Sanyam.anyacsv" target="_blank" rel="noopener noreferrer">marketplace<span class="arrow" aria-hidden="true">↗</span></a>
+            <a href="https://github.com/snymkmr/anyaCSV" target="_blank" rel="noopener noreferrer">source<span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaJSON</h3>
+            <span class="tag">JSON</span>
+          </div>
+          <p>
+            Format, minify and lint JSON without touching key order, number
+            spellings or escapes. Preview record arrays as a table and export to Excel.
+          </p>
+          <div class="actions">
+            <a href="https://marketplace.visualstudio.com/items?itemName=Sanyam.anyajson" target="_blank" rel="noopener noreferrer">marketplace<span class="arrow" aria-hidden="true">↗</span></a>
+            <a href="https://github.com/snymkmr/anyaJSON" target="_blank" rel="noopener noreferrer">source<span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaPDF</h3>
+            <span class="tag">PDF</span>
+          </div>
+          <p>
+            Read PDFs inside VS Code. Lazy page rendering, text selection and
+            search, zoom and fit-to-width, outline navigation.
+          </p>
+          <div class="actions">
+            <a href="https://marketplace.visualstudio.com/items?itemName=Sanyam.anyapdf" target="_blank" rel="noopener noreferrer">marketplace<span class="arrow" aria-hidden="true">↗</span></a>
+            <a href="https://github.com/snymkmr/anyaPDF" target="_blank" rel="noopener noreferrer">source<span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="group" aria-labelledby="g-chrome">
+      <h2 id="g-chrome"><span class="count">03</span>Chrome extension</h2>
+      <ul class="projects">
+        <li class="project">
+          <div class="head">
+            <h3>QRious</h3>
+            <span class="tag">Manifest V3</span>
+          </div>
+          <p>
+            One click makes a QR code for the page you’re on. Copy or download a
+            print-size PNG, or right-click any link to get its code. Works offline;
+            the URL never leaves your browser.
+          </p>
+          <div class="actions">
+            <a href="https://github.com/snymkmr/QRious" target="_blank" rel="noopener noreferrer">source<span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <p class="note">
+      More on <a href="https://github.com/snymkmr" target="_blank" rel="noopener noreferrer">GitHub</a>.
+      Privacy details for these projects live on the <a href="/privacy/">privacy page</a>.
+    </p>
+  </main>
+
+  <footer class="footer">
+    <nav class="links" aria-label="Site">
+      <a href="/"><sup>←</sup>home</a>
+      <a href="https://github.com/snymkmr" target="_blank" rel="noopener noreferrer">github</a>
+      <a href="/privacy/">privacy</a>
+    </nav>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+
+</html>
