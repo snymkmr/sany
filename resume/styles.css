@@ -911,14 +911,20 @@ a {
 
   .row .link {
     margin: 0;
+    font-size: 8.5pt;
   }
 
+  /* Grid sections can't split across pages in Chromium (Brave/Chrome/Edge):
+     when one doesn't fit, the whole section jumps to the next page and leaves
+     a blank gap. Print uses a float layout instead, which breaks between jobs. */
   .section {
-    grid-template-columns: 9rem minmax(0, 1fr);
-    column-gap: 1.5rem;
-    row-gap: 0;
+    display: flow-root;
     padding: 0.65rem 0;
     break-inside: auto;
+  }
+
+  .section > .section-body {
+    margin-left: 10.5rem;
   }
 
   .section:last-child {
@@ -927,11 +933,16 @@ a {
 
   .section-label {
     position: static;
-    break-after: avoid;
+    float: left;
+    width: 9rem;
   }
 
   .jobs {
-    gap: 0.7rem;
+    display: block;
+  }
+
+  .jobs > .job + .job {
+    margin-top: 0.7rem;
   }
 
   .job,
