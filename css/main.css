@@ -543,10 +543,13 @@ h1 {
     display: none;
   }
 
-  /* Links: tidy 3 x 2 grid with comfortable tap targets */
+  /* Links: socials in a tidy grid, open source + resume pinned
+     on their own row at the very bottom */
   .footer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-shrink: 0;
     gap: 0;
     padding-top: 0.5rem;
     border-top: 1px solid var(--faint);
@@ -557,7 +560,15 @@ h1 {
   }
 
   .footer .links {
-    display: contents;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .footer .links + .links {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 0.25rem;
+    border-top: 1px solid var(--faint);
   }
 
   .footer .links a {
