@@ -44,6 +44,48 @@
       margin-top: clamp(1.5rem, 5vh, 3rem);
     }
 
+    /* Broken-link icon beside the headline */
+    .notfound h1 .broken {
+      width: 0.8em;
+      height: 0.8em;
+      margin-left: 0.3em;
+      vertical-align: -0.05em;
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      overflow: visible;
+    }
+
+    /* The torn halves keep pulling apart and drifting back together */
+    @media (prefers-reduced-motion: no-preference) {
+      .notfound h1 .broken g {
+        transform-box: fill-box;
+        animation: 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+
+      .notfound h1 .broken .half-a {
+        transform-origin: 0% 100%;
+        animation-name: tear-a;
+      }
+
+      .notfound h1 .broken .half-b {
+        transform-origin: 100% 0%;
+        animation-name: tear-b;
+      }
+    }
+
+    @keyframes tear-a {
+      0%, 100% { transform: translate(0, 0) rotate(0); }
+      40%, 60% { transform: translate(-0.5px, -2px) rotate(-8deg); }
+    }
+
+    @keyframes tear-b {
+      0%, 100% { transform: translate(0, 0) rotate(0); }
+      40%, 60% { transform: translate(0.5px, 2px) rotate(6deg); }
+    }
+
     @media (max-width: 560px) {
       .notfound main {
         padding-block: 1.5rem 1.25rem;
@@ -87,10 +129,112 @@
       }
     }
 
-    /* Short phones: drop the aside rather than crowd the header */
-    @media (max-width: 560px) and (max-height: 640px) {
+    /* Short phones (e.g. iPhone SE): tighten everything to stay on one screen */
+    @media (max-width: 560px) and (max-height: 700px) {
+      .notfound main {
+        padding-block: 0.75rem;
+      }
+
+      .notfound h1 {
+        font-size: 1.625rem;
+      }
+
+      .notfound .lede,
+      .notfound .prose {
+        font-size: 0.75rem;
+        line-height: 1.5;
+      }
+
+      .notfound .lede {
+        margin-top: 0.625rem;
+      }
+
+      .notfound .group {
+        margin-top: 0.875rem;
+      }
+
+      .notfound .group h2 {
+        padding-bottom: 0.375rem;
+      }
+
+      .notfound .prose {
+        padding-top: 0.5rem;
+      }
+
       .notfound .callout {
+        font-size: 0.6875rem;
+        line-height: 1.45;
+      }
+
+      .page .footer {
+        margin-top: 0.5rem;
+        padding-bottom: 1.25rem;
+      }
+    }
+
+    /* Short screens of any width (landscape phones, small windows) */
+    @media (max-height: 560px) {
+      .notfound .topbar {
+        padding-top: calc(clamp(0.75rem, 2vw, 1.25rem) + 0.5rem);
+      }
+
+      .notfound main {
+        padding-block: 0.5rem;
+      }
+
+      .notfound .greeting {
+        margin-bottom: 0.25rem;
+        font-size: 0.75rem;
+      }
+
+      .notfound h1 {
+        font-size: 1.5rem;
+      }
+
+      .notfound .lede,
+      .notfound .prose {
+        font-size: 0.75rem;
+        line-height: 1.5;
+      }
+
+      .notfound .lede {
+        margin-top: 0.5rem;
+      }
+
+      .notfound .group {
+        margin-top: 0.75rem;
+      }
+
+      .notfound .group h2 {
+        padding-bottom: 0.25rem;
+        font-size: 0.75rem;
+      }
+
+      .notfound .prose {
+        padding-top: 0.5rem;
+      }
+
+      .notfound .callout {
+        margin-top: 0;
+        font-size: 0.6875rem;
+        line-height: 1.45;
+      }
+
+      /* Clear the decorative frame, which sits this far in from the edge */
+      .notfound .footer {
+        margin-top: 0;
+        padding-bottom: calc(clamp(0.75rem, 2vw, 1.25rem) + 0.5rem);
+      }
+    }
+
+    /* Very short screens: drop the section heading to make room */
+    @media (max-height: 480px) {
+      .notfound .group h2 {
         display: none;
+      }
+
+      .notfound .prose {
+        padding-top: 0;
       }
     }
   </style>
@@ -123,34 +267,39 @@
 
   <main>
     <p class="greeting"><span class="slash">//</span>error <span class="sep" aria-hidden="true">·</span> 404</p>
-    <h1>Page not found</h1>
+    <h1>Page not found<svg class="broken" viewBox="0 0 24 24" aria-hidden="true">
+        <g class="half-a">
+          <path d="M5 12V4a2 2 0 0 1 2-2h8l4 4v6l-2-1-2 1.5-2.5-2-2.5 2-2.5-2Z" />
+          <path d="M15 2v4h4M8.5 7h5" />
+        </g>
+        <g class="half-b">
+          <path d="M5 12l2.5-1.5 2.5 2 2.5-2 2.5 2 2-1.5 2 1v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2Z" />
+          <path d="M8.5 17.5h7" />
+        </g>
+      </svg></h1>
     <p class="lede">
       I looked everywhere: the repo, the backups, my downloads folder, my other
       downloads folder. The page exists in my memory. Unfortunately, memory is
       not a deployment strategy.
     </p>
-    <p class="callout">
-      <strong>Schrödinger's page:</strong> it both exists and doesn't, until
-      you click the link.
-    </p>
 
     <section class="group" aria-labelledby="g-next">
-      <h2 id="g-next">where to go instead</h2>
+      <h2 id="g-next">so where do you go now?</h2>
       <p class="prose">
-        The <a href="/">home page</a> is right where I left it. You might also
-        like my <a href="/open-source/">open source work</a>, which exists,
-        I promise. If a link
-        on this site sent you here, I'd love to know:
+        What's the deal with 404 pages? You click a link, you expect a page.
+        The <a href="/">home page</a>? Still there. Never left. My
+        <a href="/open-source/">open source work</a>? Exists. I checked. And
+        if a link on this site sent you here, I want names:
         <a href="mailto:sanyamkumar@duck.com?subject=Broken%20link%20on%20sanyam.dev">sanyamkumar@duck.com</a>.
       </p>
     </section>
   </main>
 
   <footer class="footer">
-    <nav class="links" aria-label="Site">
-      <a href="/"><sup>←</sup>home</a>
-      <a href="/open-source/">open source</a>
-    </nav>
+    <p class="callout">
+      <strong>Schrödinger's page:</strong> it exists, it doesn't exist. Pick
+      one! You can't have it both ways. Well, you can, until you click the link.
+    </p>
   </footer>
 
   <script src="/script.js"></script>
