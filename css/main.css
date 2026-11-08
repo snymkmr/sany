@@ -9,6 +9,9 @@
   --accent: #e5480b;
   --glow: rgba(229, 72, 11, 0.07);
   --grain-opacity: 0.035;
+  --shades: 1; /* home portrait wears sunglasses in light mode */
+  --face-glow: drop-shadow(0 0 0 transparent); /* dark mode only: lit by the monitor */
+  --squint: scaleY(0.55); /* light mode only: bare eyes squint at the brightness */
 
   --sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -29,6 +32,9 @@
     --accent: #ff7038;
     --glow: rgba(255, 112, 56, 0.075);
     --grain-opacity: 0.05;
+  --shades: 0;
+  --face-glow: drop-shadow(0 0 2px rgba(255, 112, 56, 0.55)) drop-shadow(0 0 7px rgba(255, 112, 56, 0.3));
+  --squint: none;
     color-scheme: dark;
   }
 }
@@ -42,6 +48,9 @@
   --accent: #ff7038;
   --glow: rgba(255, 112, 56, 0.075);
   --grain-opacity: 0.05;
+  --shades: 0;
+  --face-glow: drop-shadow(0 0 2px rgba(255, 112, 56, 0.55)) drop-shadow(0 0 7px rgba(255, 112, 56, 0.3));
+  --squint: none;
   color-scheme: dark;
 }
 
@@ -477,7 +486,7 @@ h1 {
   .home .topbar,
   .home main > *,
   .home .footer {
-    animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;
   }
 
   .home main > :nth-child(1) { animation-delay: 0.05s; }
@@ -487,7 +496,7 @@ h1 {
   .home .footer { animation-delay: 0.38s; }
 
   .home .frame {
-    animation: fade 1.2s ease both;
+    animation: fade 1.2s ease backwards;
   }
 
   @keyframes rise {
@@ -915,7 +924,7 @@ h1 {
 @media (prefers-reduced-motion: no-preference) {
   .page .topbar,
   .page main > * {
-    animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;
   }
 
   .page main > :nth-child(2) { animation-delay: 0.06s; }
@@ -1113,4 +1122,246 @@ h1 {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+/* Headline icons ****************************** */
+
+/* Small animated line icon that sits beside a page's h1 */
+.h1-icon {
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: 0.3em;
+  vertical-align: -0.05em;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+
+/* Keep the icon on the same line as the last word */
+.h1-tail {
+  white-space: nowrap;
+}
+
+/* Home: a line portrait beside the name, a touch bigger so the face reads */
+.home h1 .h1-icon {
+  width: 0.75em;
+  height: 0.75em;
+  margin-left: 0.2em;
+  vertical-align: -0.04em;
+  stroke-width: 1.25;
+}
+
+/* Cursor on the face: the glasses come off (no fingerprints, please).
+   In light mode the eyes squint at the brightness. */
+.h1-icon.face {
+  cursor: grab; /* open hand, all five fingers */
+  /* Press-and-hold on touch screens: no text selection, callout or scrolling */
+  -webkit-touch-callout: none;
+  user-select: none;
+  touch-action: none;
+  transition: filter 0.4s ease;
+}
+
+/* Glasses off: the whole page goes soft, as a near-sighted person sees it.
+   Only the portrait stays sharp. */
+.home .topbar,
+.home .frame,
+.home .backdrop .grid,
+.home main > :not(h1),
+.home h1 .name,
+.home .footer {
+  transition: filter 0.4s ease;
+}
+
+.myopic .topbar,
+.myopic .frame,
+.myopic .backdrop .grid,
+.myopic main > :not(h1),
+.myopic h1 .name,
+.myopic .footer {
+  filter: blur(3px);
+}
+
+/* Dark mode: a soft glow while hovering, as if lit by the monitor */
+.h1-icon.face.hover {
+  filter: var(--face-glow);
+}
+
+.h1-icon.face .glasses {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  transition: transform 0.45s cubic-bezier(0.34, 1.3, 0.64, 1), opacity 0.3s ease;
+}
+
+.h1-icon.face.bare .glasses {
+  transform: translateY(3.5px) rotate(-6deg);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.55, 0, 0.75, 0.6), opacity 0.3s ease 0.1s;
+}
+
+/* Sunglasses in light mode: tinted lenses with a glint, eyes hidden behind */
+.h1-icon.face .lens {
+  fill: var(--accent);
+  fill-opacity: var(--shades);
+}
+
+.h1-icon.face .glint {
+  stroke: var(--bg);
+  stroke-width: 0.8;
+  opacity: var(--shades);
+}
+
+.h1-icon.face .look {
+  opacity: calc(1 - var(--shades));
+}
+
+.h1-icon.face.bare .look {
+  opacity: 1;
+}
+
+.h1-icon.face .eyes circle {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  transition: transform 0.3s ease;
+}
+
+.h1-icon.face.bare .eyes circle {
+  transform: var(--squint);
+  transition-delay: 0.2s;
+}
+
+.h1-icon.face .hair,
+.h1-icon.face .eyes {
+  fill: var(--accent);
+  stroke: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .h1-icon g {
+    transform-box: fill-box;
+  }
+
+  /* Home: a side-eye glance with a raised brow, then a blink */
+  .h1-icon.face .eyes {
+    transform-origin: 50% 50%;
+    animation: glance 6s ease-in-out 1s infinite;
+  }
+  /* Cursor arrives on the face: a small, polite nod (once per visit) */
+  .h1-icon.face.hover {
+    transform-origin: 50% 100%;
+    animation: nod 0.5s ease-in-out;
+  }
+  .h1-icon.face .brows {
+    animation: brow 6s ease-in-out 1s infinite;
+  }
+
+  /* Eyes follow the cursor (set from script.js); the idle glance yields to it */
+  .h1-icon.face .look {
+    transition: transform 0.18s ease-out, opacity 0.3s ease;
+  }
+  .h1-icon.face.peek .look {
+    transition-duration: 0.4s;
+  }
+  .h1-icon.face.tracking .eyes,
+  .h1-icon.face.peek .eyes {
+    animation-name: blink;
+  }
+
+  /* Cursor at rest: eyes drift slowly into eye contact (set from script.js) */
+  .h1-icon.face.happy .look {
+    transition-duration: 0.5s;
+  }
+
+  /* 404: the torn halves keep pulling apart and drifting back together */
+  .h1-icon.broken g {
+    animation: 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+  .h1-icon.broken .half-a {
+    transform-origin: 0% 100%;
+    animation-name: tear-a;
+  }
+  .h1-icon.broken .half-b {
+    transform-origin: 100% 0%;
+    animation-name: tear-b;
+  }
+
+  /* Open source: brackets breathe out while the slash swings */
+  .h1-icon.code g {
+    transform-origin: 50% 50%;
+    animation: 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+  .h1-icon.code .lt { animation-name: code-lt; }
+  .h1-icon.code .gt { animation-name: code-gt; }
+  .h1-icon.code .sl { animation-name: code-sl; }
+
+  /* Privacy: the shackle lifts open, then snaps shut */
+  .h1-icon.lock .shackle {
+    animation: shackle 3s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+  .h1-icon.lock .body {
+    transform-origin: 50% 100%;
+    animation: lock-click 3s ease-out infinite;
+  }
+}
+
+@keyframes glance {
+  0%, 20%, 52%, 100% { transform: translateX(0) scaleY(1); }
+  28%, 46% { transform: translateX(0.7px) scaleY(1); }
+  64% { transform: translateX(0) scaleY(1); }
+  67% { transform: translateX(0) scaleY(0.1); }
+  70% { transform: translateX(0) scaleY(1); }
+}
+
+@keyframes blink {
+  0%, 64%, 70%, 100% { transform: scaleY(1); }
+  67% { transform: scaleY(0.1); }
+}
+
+@keyframes nod {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  40% { transform: translateY(0.03em) rotate(2.5deg); }
+  70% { transform: translateY(-0.01em) rotate(-0.5deg); }
+}
+
+@keyframes brow {
+  0%, 26%, 50%, 100% { transform: translateY(0); }
+  32%, 44% { transform: translateY(-0.7px); }
+}
+
+@keyframes tear-a {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  40%, 60% { transform: translate(-0.5px, -2px) rotate(-8deg); }
+}
+
+@keyframes tear-b {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  40%, 60% { transform: translate(0.5px, 2px) rotate(6deg); }
+}
+
+@keyframes code-lt {
+  0%, 100% { transform: translateX(0); }
+  40%, 60% { transform: translateX(-2px); }
+}
+
+@keyframes code-gt {
+  0%, 100% { transform: translateX(0); }
+  40%, 60% { transform: translateX(2px); }
+}
+
+@keyframes code-sl {
+  0%, 100% { transform: rotate(0); }
+  40%, 60% { transform: rotate(-20deg); }
+}
+
+@keyframes shackle {
+  0%, 15%, 75%, 100% { transform: translateY(0); }
+  35%, 60% { transform: translateY(-3px); }
+}
+
+@keyframes lock-click {
+  0%, 74%, 84%, 100% { transform: scaleY(1); }
+  78% { transform: scaleY(0.94); }
 }

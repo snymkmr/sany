@@ -44,48 +44,6 @@
       margin-top: clamp(1.5rem, 5vh, 3rem);
     }
 
-    /* Broken-link icon beside the headline */
-    .notfound h1 .broken {
-      width: 0.8em;
-      height: 0.8em;
-      margin-left: 0.3em;
-      vertical-align: -0.05em;
-      fill: none;
-      stroke: var(--accent);
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      overflow: visible;
-    }
-
-    /* The torn halves keep pulling apart and drifting back together */
-    @media (prefers-reduced-motion: no-preference) {
-      .notfound h1 .broken g {
-        transform-box: fill-box;
-        animation: 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-      }
-
-      .notfound h1 .broken .half-a {
-        transform-origin: 0% 100%;
-        animation-name: tear-a;
-      }
-
-      .notfound h1 .broken .half-b {
-        transform-origin: 100% 0%;
-        animation-name: tear-b;
-      }
-    }
-
-    @keyframes tear-a {
-      0%, 100% { transform: translate(0, 0) rotate(0); }
-      40%, 60% { transform: translate(-0.5px, -2px) rotate(-8deg); }
-    }
-
-    @keyframes tear-b {
-      0%, 100% { transform: translate(0, 0) rotate(0); }
-      40%, 60% { transform: translate(0.5px, 2px) rotate(6deg); }
-    }
-
     @media (max-width: 560px) {
       .notfound main {
         padding-block: 1.5rem 1.25rem;
@@ -272,7 +230,7 @@
 
   <main>
     <p class="greeting"><span class="slash">//</span>error <span class="sep" aria-hidden="true">·</span> 404</p>
-    <h1>Page not found<svg class="broken" viewBox="0 0 24 24" aria-hidden="true">
+    <h1>Page not found<svg class="h1-icon broken" viewBox="0 0 24 24" aria-hidden="true">
         <g class="half-a">
           <path d="M5 12V4a2 2 0 0 1 2-2h8l4 4v6l-2-1-2 1.5-2.5-2-2.5 2-2.5-2Z" />
           <path d="M15 2v4h4M8.5 7h5" />
