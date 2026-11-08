@@ -19,3 +19,6 @@ Thumbs.db
 
 # Local editor settings
 .vscode/settings.json
+
+# Local pdf files
+*.pdf
