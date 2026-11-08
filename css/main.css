@@ -616,19 +616,19 @@ h1 {
   background: var(--accent);
 }
 
-/* Open source ****************************** */
+/* Inner pages (open source, privacy) ****************************** */
 
-.oss main {
+.page main {
   flex: 1;
   padding-block: clamp(3rem, 10vh, 6rem) clamp(3rem, 8vh, 5rem);
 }
 
-.oss .greeting {
+.page .greeting {
   margin-bottom: 1rem;
   font-size: 0.9375rem;
 }
 
-.oss h1 {
+.page h1 {
   font-size: clamp(2.25rem, 7vw, 4.5rem);
   line-height: 1.02;
   letter-spacing: -0.06em;
@@ -766,15 +766,109 @@ h1 {
   text-underline-offset: 3px;
 }
 
+.page .greeting .sep {
+  color: var(--faint);
+}
+
+/* Privacy: short-version panel, prose and callout */
+.tldr {
+  position: relative;
+  max-width: 46rem;
+  margin-top: clamp(2.5rem, 6vh, 3.5rem);
+  padding: 1.5rem 1.5rem 1.25rem;
+  border: 1px solid var(--faint);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.tldr::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  width: 2px;
+  background: var(--accent);
+}
+
+.tldr-label {
+  margin-bottom: 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.tldr p {
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+.promises {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.promises li {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--faint);
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  color: var(--muted);
+}
+
+.promises li::before {
+  content: "✓ ";
+  color: var(--accent);
+}
+
+.prose {
+  max-width: 46rem;
+  padding-top: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.prose a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.prose a:hover {
+  color: var(--accent);
+}
+
+.callout {
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--faint);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.callout strong {
+  font-weight: 500;
+  color: var(--text);
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .oss .topbar,
-  .oss main > * {
+  .page .topbar,
+  .page main > * {
     animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  .oss main > :nth-child(2) { animation-delay: 0.06s; }
-  .oss main > :nth-child(3) { animation-delay: 0.12s; }
-  .oss main > :nth-child(n + 4) { animation-delay: 0.2s; }
+  .page main > :nth-child(2) { animation-delay: 0.06s; }
+  .page main > :nth-child(3) { animation-delay: 0.12s; }
+  .page main > :nth-child(n + 4) { animation-delay: 0.2s; }
 }
 
 @media (max-width: 560px) {
@@ -782,8 +876,179 @@ h1 {
     padding-right: 0;
   }
 
-  .oss .footer {
+  .page .footer {
     margin-top: 1rem;
+  }
+}
+
+/* Print (inner pages) ****************************** */
+
+@media print {
+  @page {
+    margin: 16mm 18mm;
+  }
+
+  /* Always print in light ink on white, whatever theme is active */
+  :root,
+  :root[data-theme="dark"],
+  :root:not([data-theme="light"]) {
+    --bg: #fff;
+    --text: #000;
+    --muted: #444;
+    --faint: #ccc;
+    --accent: #000;
+    color-scheme: light;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+
+  .page {
+    display: block;
+    min-height: 0;
+    background: #fff;
+    color: #000;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+
+  /* Screen-only chrome */
+  .page .backdrop,
+  .page .frame,
+  .page .topnav,
+  .page .footer {
+    display: none !important;
+  }
+
+  .page .topbar,
+  .page main {
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  .page .topbar {
+    padding-block: 0 6pt;
+  }
+
+  .page .pulse {
+    display: none;
+  }
+
+  /* Keep the sanyam.dev mark so the printout shows where it came from */
+  .page .mark {
+    font-size: 8pt;
+    color: #444;
+  }
+
+  .page main {
+    padding-block: 12pt 0;
+  }
+
+  .page .greeting {
+    margin-bottom: 4pt;
+    font-size: 9pt;
+  }
+
+  .page h1 {
+    font-size: 24pt;
+  }
+
+  .page .lede,
+  .page .prose,
+  .page .project p,
+  .page .callout,
+  .page .note {
+    color: #222;
+  }
+
+  .page .lede {
+    margin-top: 8pt;
+  }
+
+  .group {
+    margin-top: 18pt;
+  }
+
+  .group h2 {
+    padding-bottom: 4pt;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .projects {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project {
+    padding: 10pt 12pt 10pt 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .project h3 {
+    font-size: 11pt;
+  }
+
+  .project p,
+  .prose,
+  .tldr p {
+    font-size: 9.5pt;
+    line-height: 1.55;
+  }
+
+  .tldr {
+    margin-top: 16pt;
+    padding: 10pt 12pt;
+    max-width: none;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .tldr::before {
+    display: none;
+  }
+
+  .tldr-label {
+    color: #000;
+  }
+
+  .prose {
+    max-width: none;
+    padding-top: 8pt;
+  }
+
+  .install {
+    background: none;
+  }
+
+  /* Links: no hover arrows, and print the address after external ones */
+  .page .arrow {
+    display: none;
+  }
+
+  .page main a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .page .actions a[href^="http"]::after,
+  .page .note a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #444;
+    word-break: break-all;
+  }
+
+  .actions {
+    font-size: 8.5pt;
   }
 }
 
