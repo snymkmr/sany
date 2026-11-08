@@ -37,7 +37,7 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 const rotate = (el, words, period) => {
   const wrap = document.createElement("span");
   wrap.className = "wrap";
-  el.appendChild(wrap);
+  el.prepend(wrap); // text goes before the cursor
 
   if (reduceMotion) {
     wrap.textContent = words[0];
@@ -58,11 +58,13 @@ const rotate = (el, words, period) => {
     const full = glyphs[index % glyphs.length];
     count += deleting ? -1 : 1;
     wrap.textContent = full.slice(0, count).join("");
+    el.classList.add("typing");
 
     let delay = deleting ? 60 : 140 - Math.random() * 50;
     if (!deleting && count >= full.length) {
       delay = period;
       deleting = true;
+      el.classList.remove("typing");
     } else if (deleting && count <= 0) {
       count = 0;
       deleting = false;
