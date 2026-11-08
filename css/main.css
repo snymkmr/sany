@@ -543,8 +543,8 @@ h1 {
     display: none;
   }
 
-  /* Links: socials in a tidy grid, open source + resume pinned
-     on their own row at the very bottom */
+  /* Links: socials in a tidy grid, open source pinned
+     on its own row at the very bottom */
   .footer {
     display: flex;
     flex-direction: column;
