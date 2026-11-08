@@ -1,75 +1,177 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Privacy information for sanyam.dev and the Anya VS Code extensions." />
+  <title>Privacy | Sañyam Kumar</title>
+  <meta name="description" content="Privacy information for sanyam.dev, the Anya VS Code extensions and the strip-accents npm package." />
   <meta name="color-scheme" content="light dark" />
-  <title>Privacy | Sanyam Kumar</title>
+  <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+  <link rel="canonical" href="https://sanyam.dev/privacy/" />
   <link rel="icon" href="../favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+
   <script>
     try {
       var t = localStorage.getItem("theme-preference");
       if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
     } catch (e) {}
   </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@300..600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300..600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/main.css" />
-  <style>
-    main.doc { font-family: var(--sans); padding-block: 3rem 4rem; max-width: calc(42rem + 2 * var(--gutter)); }
-    .doc h1 { margin-bottom: 0.5rem; }
-    .doc h2 {
-      font-family: var(--mono);
-      font-weight: 500;
-      font-size: 1.125rem;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin: 2.75rem 0 0.75rem;
-    }
-    .doc p, .doc ul { margin-bottom: 1rem; }
-    .doc ul { padding-left: 1.1rem; list-style: disc; }
-    .doc li::marker { color: var(--accent); }
-    .doc li + li { margin-top: 0.6rem; }
-    .doc a:not(.mark) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-    .doc .eyebrow, .doc .updated { font-family: var(--mono); font-size: 0.8125rem; color: var(--muted); }
-    .doc .eyebrow { margin-bottom: 1.5rem; }
-    .doc .updated { margin-bottom: 2.5rem; }
-    .doc footer { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--faint); font-family: var(--mono); font-size: 0.8125rem; }
-  </style>
 </head>
-<body>
-  <main class="doc">
-    <p class="eyebrow"><a href="https://sanyam.dev">Sanyam.dev</a> / Privacy</p>
+
+<body class="page">
+  <div class="backdrop" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="glow"></div>
+    <div class="grain"></div>
+  </div>
+  <div class="frame" aria-hidden="true">
+    <i></i><i></i><i></i><i></i>
+  </div>
+
+  <header class="topbar">
+    <a class="mark" href="/" aria-label="sanyam.dev home"><span class="pulse"></span>sanyam.dev</a>
+    <div class="topnav">
+      <a class="navlink" href="/privacy/" aria-current="page">privacy</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <p class="greeting"><span class="slash">//</span>privacy <span class="sep" aria-hidden="true">·</span> effective Nov 1, 2026</p>
     <h1>Privacy</h1>
-    <p class="updated">Effective date: November 1, 2026</p>
+    <p class="lede">
+      This page covers my projects that link here: my websites, my VS Code
+      extensions (AnyaPDF, AnyaXML, AnyaCSV, AnyaJSON), and my npm package
+      (strip-accents).
+    </p>
 
-    <p>This page covers my projects that link here: my websites, my VS Code extensions (AnyaPDF, AnyaXML, AnyaCSV, AnyaJSON), and my npm package (strip-accents).</p>
+    <section class="tldr" aria-labelledby="g-short">
+      <h2 id="g-short" class="tldr-label">The short version</h2>
+      <p>
+        My extensions process your files locally in VS Code. They do not send
+        your document contents or usage data to me. Large-file previews and
+        checks read files directly from disk. The extensions have no accounts,
+        ads, or telemetry that they send to me.
+      </p>
+      <ul class="promises" aria-label="At a glance">
+        <li>runs locally</li>
+        <li>no telemetry sent to me</li>
+        <li>no accounts</li>
+        <li>no ads</li>
+      </ul>
+    </section>
 
-    <p>The short version: my extensions process your files locally in VS Code. They do not send your document contents or usage data to me. Large-file previews and checks read files directly from disk. The extensions have no accounts, ads, or telemetry that they send to me.</p>
+    <section class="group" aria-labelledby="g-projects">
+      <h2 id="g-projects"><span class="count">01</span>per project</h2>
+      <ul class="projects">
+        <li class="project">
+          <div class="head">
+            <h3>strip-accents</h3>
+            <span class="tag">npm</span>
+          </div>
+          <p>
+            Runs entirely in your own code. It has no install scripts and does
+            not collect or send any data.
+          </p>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaXML</h3>
+            <span class="tag">VS Code</span>
+          </div>
+          <p>
+            Formats and minifies files locally using a temporary folder that is
+            deleted after processing. Large-file previews and validation read
+            directly from disk. Excel exports are written to a location you choose.
+          </p>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaCSV</h3>
+            <span class="tag">VS Code</span>
+          </div>
+          <p>
+            Remembers enabled documents and delimiter choices in VS Code storage.
+            Large-file previews and lint read from disk locally. Its colorization
+            diagnostic records only elapsed time in the local extension-host log,
+            without a file name or contents; AnyaCSV does not send this entry to me.
+            Excel exports are written to a location you choose.
+          </p>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaJSON</h3>
+            <span class="tag">VS Code</span>
+          </div>
+          <p>
+            Does not keep document contents in extension storage. Large-file
+            previews and validation read saved files locally from disk. Excel
+            exports are written to a location you choose.
+          </p>
+        </li>
+        <li class="project">
+          <div class="head">
+            <h3>AnyaPDF</h3>
+            <span class="tag">VS Code</span>
+          </div>
+          <p>
+            Opens PDFs in a local VS Code webview and remembers your zoom and
+            fit-to-width settings in VS Code's own storage.
+          </p>
+        </li>
+      </ul>
+      <p class="callout">
+        <strong>Note:</strong> VS Code itself may collect telemetry based on your
+        VS Code settings. That is Microsoft's, not mine.
+      </p>
+    </section>
 
-    <h2>Per project</h2>
-    <ul>
-      <li><strong>strip-accents</strong> (npm package) runs entirely in your own code. It has no install scripts and does not collect or send any data.</li>
-      <li><strong>AnyaPDF</strong> opens PDFs in a local VS Code webview and remembers your zoom and fit-to-width settings in VS Code's own storage.</li>
-      <li><strong>AnyaXML</strong> formats and minifies files locally using a temporary folder that is deleted after processing. Large-file previews and validation read directly from disk. Excel exports are written to a location you choose.</li>
-      <li><strong>AnyaCSV</strong> remembers enabled documents and delimiter choices in VS Code storage. Large-file previews and lint read from disk locally. Its colorization diagnostic records only elapsed time in the local extension-host log, without a file name or contents; AnyaCSV does not send this entry to me. Excel exports are written to a location you choose.</li>
-      <li><strong>AnyaJSON</strong> does not keep document contents in extension storage. Large-file previews and validation read saved files locally from disk. Excel exports are written to a location you choose.</li>
-    </ul>
+    <section class="group" aria-labelledby="g-site">
+      <h2 id="g-site"><span class="count">02</span>this website</h2>
+      <p class="prose">
+        This website (sanyam.dev) remembers your light/dark theme in your browser.
+        It loads fonts from Google Fonts, so Google may see technical info like
+        your IP address when your browser fetches them. My hosting provider may
+        log technical request data to run and protect the site. No analytics or
+        advertising on this page.
+      </p>
+    </section>
 
-    <p><strong>Note:</strong> VS Code itself may collect telemetry based on your VS Code settings. That is Microsoft's, not mine.</p>
-
-    <h2>This website</h2>
-    <p>This website (sanyam.dev) remembers your light/dark theme in your browser. It loads fonts from Google Fonts, so Google may see technical info like your IP address when your browser fetches them. My hosting provider may log technical request data to run and protect the site. No analytics or advertising on this page.</p>
-
-    <h2>Contact</h2>
-    <p>Questions about this page or a project's practices? Email <a href="mailto:sanyamkumar@duck.com">sanyamkumar@duck.com</a>. I only use what you send to reply.</p>
-
-    <footer>
-      <a href="https://sanyam.dev">Return to sanyam.dev</a>
-    </footer>
+    <section class="group" aria-labelledby="g-contact">
+      <h2 id="g-contact"><span class="count">03</span>contact</h2>
+      <p class="prose">
+        Questions about this page or a project's practices? Email
+        <a href="mailto:sanyamkumar@duck.com">sanyamkumar@duck.com</a>.
+        I only use what you send to reply.
+      </p>
+    </section>
   </main>
+
+  <footer class="footer">
+    <nav class="links" aria-label="Site">
+      <a href="/"><sup>←</sup>home</a>
+      <a href="/open-source/">open source</a>
+      <a href="/resume/">resume</a>
+    </nav>
+  </footer>
+
+  <script src="../script.js"></script>
 </body>
+
 </html>
