@@ -722,6 +722,46 @@ h1 {
   color: var(--accent);
 }
 
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.steps li {
+  position: relative;
+  padding-left: 1.5rem;
+  counter-increment: step;
+}
+
+.steps li + li {
+  margin-top: 0.3rem;
+}
+
+.steps li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  font-size: 0.625rem;
+  line-height: 1.95;
+  color: var(--accent);
+}
+
+.steps code {
+  font-family: var(--mono);
+  color: var(--text);
+  user-select: all;
+}
+
+.steps strong {
+  font-weight: 500;
+  color: var(--text);
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
