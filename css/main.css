@@ -574,6 +574,7 @@ h1 {
   .footer .links a {
     display: flex;
     align-items: center;
+    justify-self: start;
     min-height: 2.75rem;
     padding-bottom: 0;
   }
