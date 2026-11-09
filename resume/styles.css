@@ -58,6 +58,7 @@
 }
 
 html {
+  touch-action: pan-x pan-y; /* no pinch or double-tap zoom; taps stay instant */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -367,16 +368,16 @@ a {
   transition: opacity 0.35s var(--ease), transform 0.5s var(--ease);
 }
 
-/* Light theme shows the moon (switch to dark); dark theme shows the sun. */
-.icon-moon { opacity: 1; transform: rotate(0) scale(1); }
-.icon-sun { opacity: 0; transform: rotate(-60deg) scale(0.6); }
+/* Icon shows the current theme (matches the main site): sun in light, moon in dark. */
+.icon-sun { opacity: 1; transform: rotate(0) scale(1); }
+.icon-moon { opacity: 0; transform: rotate(-60deg) scale(0.6); }
 
-:root[data-theme="dark"] .icon-moon { opacity: 0; transform: rotate(60deg) scale(0.6); }
-:root[data-theme="dark"] .icon-sun { opacity: 1; transform: rotate(0) scale(1); }
+:root[data-theme="dark"] .icon-sun { opacity: 0; transform: rotate(60deg) scale(0.6); }
+:root[data-theme="dark"] .icon-moon { opacity: 1; transform: rotate(0) scale(1); }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .icon-moon { opacity: 0; transform: rotate(60deg) scale(0.6); }
-  :root:not([data-theme="light"]) .icon-sun { opacity: 1; transform: rotate(0) scale(1); }
+  :root:not([data-theme="light"]) .icon-sun { opacity: 0; transform: rotate(60deg) scale(0.6); }
+  :root:not([data-theme="light"]) .icon-moon { opacity: 1; transform: rotate(0) scale(1); }
 }
 
 /* ---------- Labels ---------- */
