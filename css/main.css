@@ -523,6 +523,19 @@ h1 {
   }
 }
 
+/* Touch screens: rise without fading in. Text that starts fully transparent
+   isn't counted as painted, which delays LCP on mobile by ~1s; starting
+   blurred and low keeps the motion but shows content from the first frame.
+   (A later @keyframes with the same name wins while this media matches.) */
+@media (prefers-reduced-motion: no-preference) and (hover: none) and (pointer: coarse) {
+  @keyframes rise {
+    from {
+      transform: translateY(12px);
+      filter: blur(4px);
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -563,12 +576,11 @@ h1 {
     display: none;
   }
 
-  /* Links: socials in a tidy grid, open source pinned
-     on its own row at the very bottom */
+  /* Links: socials in a tidy 3-column grid; open source takes the
+     empty last cell, pinned to the bottom-right corner (no extra row) */
   .footer {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     flex-shrink: 0;
     gap: 0;
     padding-top: 0.5rem;
@@ -585,10 +597,14 @@ h1 {
     gap: 0;
   }
 
+  .footer .links {
+    grid-area: 1 / 1;
+  }
+
   .footer .links + .links {
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 0.25rem;
-    border-top: 1px solid var(--faint);
+    display: flex;
+    align-self: end;
+    justify-self: end;
   }
 
   .footer .links a {

@@ -794,6 +794,28 @@ a {
   }
 }
 
+/* Touch screens: rise without fading in. Text that starts fully transparent
+   isn't counted as painted, which delays LCP on mobile by ~1s; waiting blocks
+   sit blurred and low (the animation's first frame) instead of invisible. */
+@media (hover: none) and (pointer: coarse) {
+  .js .reveal:not(.in) {
+    opacity: 1;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+
+  @keyframes rise {
+    from {
+      transform: translateY(12px);
+      filter: blur(4px);
+    }
+    to {
+      transform: none;
+      filter: blur(0);
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
