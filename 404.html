@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-eQUGtPhNb5aJUjCQH5fNO0NZJ8KZQ/fn9OC6A8GYph0='; style-src 'self' https://fonts.googleapis.com 'sha256-oZ6JMAideAebT/9fkS5PNHjzHIyejmbTqw1b4Cyedos='; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-eQUGtPhNb5aJUjCQH5fNO0NZJ8KZQ/fn9OC6A8GYph0='; style-src 'self' 'sha256-oZ6JMAideAebT/9fkS5PNHjzHIyejmbTqw1b4Cyedos='; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests" />
   <title>404 | Sañyam Kumar</title>
   <meta name="description" content="This page doesn't exist. It's not you, it's me." />
   <meta name="robots" content="noindex" />
@@ -21,9 +21,7 @@
     } catch (e) {}
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300..600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/css/main.css" />
   <style>
     /* One screen, no scroll */
@@ -267,7 +265,7 @@
     </p>
   </footer>
 
-  <script src="/script.js"></script>
+  <script src="/script.js" defer></script>
 </body>
 
 </html>

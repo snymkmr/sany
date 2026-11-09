@@ -107,30 +107,48 @@ if (main) {
 
   // Measure layout boxes (offset*), which ignore transforms, so the
   // entrance animation's translate never registers as overflow.
-  const fits = () => {
+  // How much room there is relative to what's needed: >= 1 means it fits.
+  const room = () => {
     const kids = [...main.children].filter((el) => el.offsetHeight);
-    if (!kids.length) return true;
+    if (!kids.length) return Infinity;
     const first = kids[0];
     const last = kids[kids.length - 1];
     const cs = getComputedStyle(main);
     const needed =
       last.offsetTop + last.offsetHeight - first.offsetTop +
       parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
-    const nameFits = !h1 || h1.scrollWidth <= h1.clientWidth + 1;
-    return needed <= main.clientHeight + 1 && nameFits;
+    const height = (main.clientHeight + 1) / needed;
+    const width = h1 ? (h1.clientWidth + 1) / h1.scrollWidth : Infinity;
+    return Math.min(height, width);
   };
+  const fits = () => room() >= 1;
 
   const apply = (k) => {
     root.style.setProperty("--fit", k);
     root.style.fontSize = `${k * 100}%`;
   };
 
+  // Every measurement forces a layout, so keep them few: nearly everything
+  // scales with the root font size, so the first measurement predicts the
+  // answer closely. Bisect only a narrow bracket around that guess (falling
+  // back to the full range if the guess is off), to 0.4% precision.
   const fit = () => {
     apply(1);
-    if (fits()) return;
+    const r = room();
+    if (r >= 1) return;
     let lo = 0.35;
     let hi = 1;
-    for (let i = 0; i < 10; i++) {
+    const guessHi = Math.min(hi, r * 1.08);
+    const guessLo = Math.max(lo, r * 0.92);
+    apply(guessHi);
+    if (fits()) lo = guessHi;
+    else {
+      hi = guessHi;
+      apply(guessLo);
+      if (fits()) lo = guessLo;
+      else hi = guessLo;
+    }
+    for (let i = 0; i < 10 && hi - lo > 0.004; i++) {
       const mid = (lo + hi) / 2;
       apply(mid);
       if (fits()) lo = mid;
@@ -145,9 +163,12 @@ if (main) {
     pending = requestAnimationFrame(fit);
   };
 
+  // If the web font is already in (e.g. from cache), this first fit is final;
+  // otherwise refit once it swaps in, since its metrics change the layout.
+  const fontReady = document.fonts?.check('1em "Geist Mono"') ?? true;
   fit();
   window.addEventListener("resize", schedule);
-  document.fonts?.ready.then(fit);
+  if (!fontReady) document.fonts.ready.then(fit);
 }
 
 /* Home portrait: eyes follow the cursor (mouse/trackpad only) */
