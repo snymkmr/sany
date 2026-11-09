@@ -127,31 +127,3 @@
 
 // Disable the context menu (right click) site-wide.
 document.addEventListener("contextmenu", (event) => event.preventDefault());
-
-// Disable zooming: Ctrl/Cmd + wheel/trackpad pinch, Ctrl/Cmd + +/-/0, and touch pinch.
-// Double-tap zoom is disabled in CSS via `touch-action`, so fast taps still register.
-document.addEventListener(
-  "wheel",
-  (event) => {
-    if (event.ctrlKey || event.metaKey) event.preventDefault();
-  },
-  { passive: false }
-);
-document.addEventListener("keydown", (event) => {
-  if (
-    (event.ctrlKey || event.metaKey) &&
-    ["+", "=", "-", "_", "0"].includes(event.key)
-  ) {
-    event.preventDefault();
-  }
-});
-["gesturestart", "gesturechange", "gestureend"].forEach((type) =>
-  document.addEventListener(type, (event) => event.preventDefault())
-);
-document.addEventListener(
-  "touchmove",
-  (event) => {
-    if (event.touches.length > 1) event.preventDefault();
-  },
-  { passive: false }
-);

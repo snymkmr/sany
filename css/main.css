@@ -77,7 +77,7 @@ ul {
 
 html {
   -webkit-text-size-adjust: 100%;
-  touch-action: pan-x pan-y; /* no pinch or double-tap zoom; taps stay instant */
+  touch-action: manipulation; /* no double-tap delay; pinch zoom still works */
 }
 
 body {
