@@ -18,10 +18,10 @@
 :root {
   --bg: #fafaf9;
   --text: #0c0c0b;
-  --muted: #76746f;
+  --muted: #5c5a55;
   --faint: #e7e5e1;
   --line: rgba(12, 12, 11, 0.06);
-  --accent: #e5480b;
+  --accent: #bf3e0a;
   --glow: rgba(229, 72, 11, 0.07);
   --grain: 0.035;
 
@@ -614,7 +614,7 @@ a {
 .meta {
   flex: none;
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.02em;
   color: var(--muted);
   text-align: right;
